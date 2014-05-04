@@ -1,6 +1,56 @@
 {% extends 'base_with_nav_and_footer.html' %}
+{% block extra_head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/handlebars-v1.3.0.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/tabletop.js') }}"></script>
+{% raw %}
+<script id="timetable-row-template" type="text/x-handlebars-template">
+  <tr class="{{ css-class }}">
+    <td>{{ when }}</td>
+    <td>{{ who }}</td>
+    <td>{{ what }}</td>
+  </tr>
+</script>
+<script id="timetable-header-template" type="text/x-handlebars-template">
+  <tr class="{{ css-class }}">
+    <th colspan=3>{{ when }}</th>
+  </tr>
+</script>
+{% endraw %}
+<script type="text/javascript">
+  window.onload = function() { init() };
+
+  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/16Idx3ZiHEpjGW58gsZWlDEzMhfDQbw22ncr_iKdIiFU/pubhtml';
+
+  function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     wanted: ['Aikataulu'],
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    var headerTemplate = Handlebars.compile($("#timetable-header-template").html());
+    var rowTemplate = Handlebars.compile($("#timetable-row-template").html());
+
+    $(function () {
+      var $timetable = $('#timetable > tbody');
+      for (row in data) {
+        if (data[row].header) {
+          $timetable.append(headerTemplate(data[row]));
+        } else {
+          $timetable.append(rowTemplate(data[row]));
+        }
+      }
+
+      $("#timetable-loading-message").slideUp();
+      $("#timetable").slideDown();
+    });
+  }
+
+</script>
+{% endblock %}
 {% block content %}
-<div id="main-header">
+<div id="index-header">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -35,31 +85,12 @@
     <div class="col-md-8">
       <h2>Aikataulu</h2>
       <p>Huom! Aikataulu on alustava ja varmaa on ainoastaa alku- ja loppuaika :)</p>
-      <div class="table-responsive">
-        {% macro timetablerow(time, description, who='', row_class) -%}
-          <tr class="{{ row_class }}">
-            <td>{{ time }}</td>
-            <td>{{ description }}</td>
-            <td>{{ who }}</td>
-          </tr>
-        {%- endmacro %}
-        <table class="table table-hover">
-          <tr class="success">
-            <th colspan=3>Perjantai 13.6.</th>
-          </tr>
-          {{ timetablerow('18:00', 'Ovet aukevat') }}
-          {{ timetablerow('18:30', 'Tervetulijaispuhe', 'Antti Hirvonen / DOT') }}
-          {{ timetablerow('19:00', 'Grafiikkakoodauksen startti', '?') }}
-
-          <tr class="success">
-            <th colspan=3>Lauantai 14.6.</th>
-          </tr>
-          {{ timetablerow('Koko päivä', 'Kilpailutöiden työstämistä') }}
-
-          <tr class="success">
-            <th colspan=3>Sunnuntai 15.6.</th>
-          </tr>
-          {{ timetablerow('02:00', 'Tapahtuma päättyy') }}
+      <div class="table-responsive" id="timetable-wrapper">
+        <div class="alert alert-block alert-info" id="timetable-loading-message">Aikataulua ladataan, odota hetki...</div>
+        <table id="timetable" class="table table-hover">
+          <tbody>
+          <!-- contents are pulled from Google spreadsheet using JS -->
+          </tbody>
         </table>
       </div>
     </div>
@@ -75,6 +106,49 @@
       Alhaalta löytyvistä kuvista saa jonkinlaisen käsityksen tiloista.</p>
       <p>Mikäli olet tulossa paikalle autolla, löytyy talon pihasta vapaita parkkipaikkoja. 
       Bussilla pääsee n. 500-800 metrin päähän, olitpa sitten tulossa Espoosta, Helsingistä tai Vantaalta.</p>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
+        </a>
+        </div>
+      </div>
 
     </div>
     <div class="col-md-4">
