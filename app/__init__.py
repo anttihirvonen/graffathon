@@ -26,7 +26,6 @@ def index():
 @app.route('/ilmoittautuminen', methods=['GET', 'POST'])
 def signup():
 	form = SignUpForm()
-	signups = SignUp.query.order_by(SignUp.created.desc())
 
 	if request.method == 'POST' and form.validate_on_submit():
 		signup = SignUp("", "", "", "")
@@ -38,7 +37,7 @@ def signup():
 		db.session.commit()
 		return redirect('/')
 
-	return render_template('signup.html', form=form, signups=signups)
+	return render_template('signup.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

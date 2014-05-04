@@ -7,7 +7,7 @@ from flask import flash
 
 class SignUpForm(Form):
 	name = TextField(u'Nimi', [validators.Required()])
-	email = TextField(u'Sähköposti', [validators.Required()])
+	email = TextField(u'Sähköposti', [validators.Email()])
 	school = TextField(u'Koulu ja koulutusohjelma')
 	experience = TextAreaField(u'Kokemus demoscenestä')
 
