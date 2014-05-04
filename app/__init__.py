@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager, login_required, login_user, logout_user
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -11,10 +12,12 @@ app.config.from_envvar('GRAFFATHON_SETTINGS')
 
 db = SQLAlchemy(app)
 
-from models import SignUp
-from forms import SignUpForm
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = '/login'
 
-db.create_all()
+from models import SignUp, Admin
+from forms import SignUpForm, LoginForm
 
 @app.route('/')
 def index():
@@ -36,3 +39,28 @@ def signup():
 		return redirect('/ilmoittautuminen')
 
 	return render_template('signup.html', form=form, signups=signups)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	form = LoginForm()
+	if request.method == 'POST' and form.validate_on_submit():
+		login_user(form.admin)
+		return redirect(request.args.get("next") or url_for('show_participants'))
+
+	return render_template('login.html', form=form)
+
+@app.route('/logout', methods=['GET'])
+@login_required
+def logout():
+	logout_user()
+	return redirect('/')
+
+@login_manager.user_loader
+def load_user(userid):
+	return Admin.query.get(int(userid))
+
+@app.route('/osallistujat')
+@login_required
+def show_participants():
+	signups = SignUp.query.order_by(SignUp.created.desc())
+	return render_template('participants.html', signups=signups)

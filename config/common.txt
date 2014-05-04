@@ -4,3 +4,4 @@ Flask-Script==0.4.0
 Flask-Collect==0.2.3
 Flask-SQLAlchemy==1.0
 Flask-WTF==0.9.3
+Flask-Login==0.2.10
