@@ -3,15 +3,6 @@
 body {
 }
 
-#main-header {
-    width: 100%;
-    height: 400px;
-    padding-top: 100px;
-    background-color: rgb(76, 177, 76);
-    color: white;
-    text-align: center;
-}
-
 footer {
     height: 200px;
     background-color: rgb(34, 48, 95);
@@ -32,4 +23,19 @@ footer a {
 
 #main-nav .navbar-brand {
     color: white;
+}
+
+/* Index page */
+
+#index-header {
+    width: 100%;
+    height: 400px;
+    padding-top: 100px;
+    background-color: rgb(76, 177, 76);
+    color: white;
+    text-align: center;
+}
+
+#timetable {
+    display: none;
 }

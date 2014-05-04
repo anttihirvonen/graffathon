@@ -33,22 +33,24 @@
     var rowTemplate = Handlebars.compile($("#timetable-row-template").html());
 
     $(function () {
-      var $timetable = $('#main-timetable > tbody');
+      var $timetable = $('#timetable > tbody');
       for (row in data) {
-        console.log(row);
         if (data[row].header) {
           $timetable.append(headerTemplate(data[row]));
         } else {
           $timetable.append(rowTemplate(data[row]));
         }
       }
+
+      $("#timetable-loading-message").slideUp();
+      $("#timetable").slideDown();
     });
   }
 
 </script>
 {% endblock %}
 {% block content %}
-<div id="main-header">
+<div id="index-header">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -83,8 +85,9 @@
     <div class="col-md-8">
       <h2>Aikataulu</h2>
       <p>Huom! Aikataulu on alustava ja varmaa on ainoastaa alku- ja loppuaika :)</p>
-      <div class="table-responsive">
-        <table id="main-timetable" class="table table-hover">
+      <div class="table-responsive" id="timetable-wrapper">
+        <div class="alert alert-block alert-info" id="timetable-loading-message">Aikataulua ladataan, odota hetki...</div>
+        <table id="timetable" class="table table-hover">
           <tbody>
           <!-- contents are pulled from Google spreadsheet using JS -->
           </tbody>
