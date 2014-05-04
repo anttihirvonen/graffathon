@@ -28,7 +28,7 @@ def signup():
 	form = SignUpForm()
 	signups = SignUp.query.order_by(SignUp.created.desc())
 
-	if request.method == 'POST':
+	if request.method == 'POST' and form.validate_on_submit():
 		signup = SignUp("", "", "", "")
 		signup.name = form.name.data
 		signup.email = form.email.data
@@ -36,7 +36,7 @@ def signup():
 		signup.experience = form.experience.data
 		db.session.add(signup)
 		db.session.commit()
-		return redirect('/ilmoittautuminen')
+		return redirect('/')
 
 	return render_template('signup.html', form=form, signups=signups)
 
