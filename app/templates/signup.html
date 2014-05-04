@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<img src="{{ url_for('static', filename='soon.jpg') }}" />
+<h1>Signup comming soon.</h1>
+<form method="post">
+	<p>{{form.name.label}}	{{form.name(size=20)}}</p>
+	<p>{{form.email.label}} {{form.email(size=20)}}</p>
+	<p>{{form.school.label}} {{form.school}}</p>
+	<p>{{form.experience.label}} {{form.experience}}</p>
+	<input type="submit">
+</form>
+
+{% for s in signups %}
+	<p>{{s.name}}</p>
+{% endfor %}
+
+{% endblock %}
