@@ -12,6 +12,16 @@ body {
     text-align: center;
 }
 
+footer {
+    height: 200px;
+    background-color: rgb(34, 48, 95);
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
 
 /* Navs */
 #main-nav {
