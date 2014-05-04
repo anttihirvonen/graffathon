@@ -7,15 +7,20 @@
       <h1>Signup comming soon.</h1>
       <form class="form-horizontal" method="post">
         {% macro form_input(input) -%}
-          <div class="form-group">
+          <div class="form-group {% if input.errors %}has-error{% endif %}">
             {{ input.label(class='col-sm-2 control-label') }}
             <div class="col-sm-10">
               {{ input(class='form-control') }}
+              {% if input.errors %}
+                {% for error in input.errors %}
+                <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
         {%- endmacro %}
 
-        {{form.csrf_token}}
+        {{ form.csrf_token }}
 
         {{ form_input(form.name) }}
         {{ form_input(form.email) }}
