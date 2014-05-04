@@ -1,5 +1,68 @@
-{% extends 'base.html' %}
-{% block body %}
-<img src="{{ url_for('static', filename='soon.jpg') }}" />
-<h1>Soon.</h1>
+{% extends 'base_with_nav.html' %}
+{% block content %}
+<div id="main-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Tule oppimaan tietokonegrafiikkaa!</h1>
+        <p>Graffathon on n. 30 tunnin mittainen hackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma, eli demo.</p>
+        <a class="btn btn-default btn-lg">Ilmoittaudu!</a>
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- main content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Mistä tapahtumassa on kyse?</h2>
+      <p>
+      Graffathon on workshop-tyylinen viikonlopun ajan kestävä tapahtuma, jossa on tarkoitus tutustua grafiikkaohjelmointiin itse asioita kokeillen. Tapahtuma on jatkoa viime vuonna järjestetylle suuren suosion keränneelle <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics-tapahtumalle</a>, joka keräsi suuren suosion. Tänä vuonna pyrimme tekemään tapahtumasta vielä aloittelijaystävällisemmän, eli tarjoamme enemmän varsinaiseen tekemiseen liittyviä presiksiä ja workshoppeja sekä muuta opastusta.
+      </p>
+
+      <p>
+      <b>Osallistuaksesi tarvitset vain pohjatietoja ohjelmoinnista sekä matematiikasta (esim. koulun peruskursseilla opetetut tiedot) – sinun ei siis tarvitse osata tehdä tietokonegrafiikkaa, musiikkia tai mallinnusta etukäteen. Tuo mukanasi tietokone ja eväitä (keittiö löytyy)</b>. Tietokoneenkaan ei tarvitse olla viimeisintä rautaa, sillä viikonloppuna ei ole tarkoitus luoda järjetöntä 3D-efektitykitystä, vaan keskittyä tuottamaan jotain reaaliajassa pyörivää grafiikkaa.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <h2>Sponsorit</h2>
+      <p>...</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Aikataulu</h2>
+      <p>Huom! Aikataulu on alustava ja varmaa on ainoastaa alku- ja loppuaika :)</p>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr class="success">
+            <th colspan=2>Perjantai 13.6.</th>
+          </tr>
+          <tr>
+            <td>18:00</td>
+            <td>Ovet aukevat!</td>
+          </tr>
+
+          <tr class="success">
+            <th colspan=2>Lauantai 14.6.</th>
+          </tr>
+          <tr>
+            <td>Koko päivä</td>
+            <td>Kilpailutöiden työstämistä</td>
+          </tr>
+
+          <tr class="success">
+            <th colspan=2>Sunnuntai 15.6.</th>
+          </tr>
+          <tr>
+            <td>02:00</td>
+            <td>Tapahtuma loppuu</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
