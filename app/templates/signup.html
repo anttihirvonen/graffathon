@@ -2,14 +2,24 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <img src="{{ url_for('static', filename='soon.jpg') }}" />
-      <h1>Signup comming soon.</h1>
+    <div class="col-md-12">
+      <!--<img src="{{ url_for('static', filename='soon.jpg') }}" />-->
+      <h1>Ilmoittaudu tapahtumaan</h1>
+    </div>
+    <div class="col-md-6">
+      <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan. Täytettyäsi lomakkeen lähetämme sinulla automaattisesti sähköpostin, joka
+      sisältää tiedot osallistumismaksun (10 euroa) maksamista varten. Sinulla on viikko aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka
+      vapautuu jollekin toiselle halukkaalle.</p>
+      <h2>Voiko osallistumisen perua maksun jälkeen?</h2>
+      <p>Osallistumisen voi perua 1.6.2014 asti. Tämän jälkeen osallistumismaksua ei enää palauteta, vaikka et pääsisi osallistumaan tapahtumaan. Voit kuitenkin
+      yrittää houkutella kaverisi tilallesi.</p>
+    </div>
+    <div class="col-md-6">
       <form class="form-horizontal" method="post">
         {% macro form_input(input) -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">
-            {{ input.label(class='col-sm-2 control-label') }}
-            <div class="col-sm-10">
+            {{ input.label(class='col-sm-3 control-label') }}
+            <div class="col-sm-9">
               {{ input(class='form-control') }}
               {% if input.errors %}
                 {% for error in input.errors %}
@@ -28,7 +38,7 @@
         {{ form_input(form.experience) }}
 
         <div class="form-group">
-          <div class="col-sm-10 col-sm-offset-2">
+          <div class="col-sm-9 col-sm-offset-3">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Ilmoittaudu!</button>
           </div>
         </div>
