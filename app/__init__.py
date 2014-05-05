@@ -19,9 +19,21 @@ login_manager.login_view = '/login'
 from models import SignUp, Admin
 from forms import SignUpForm, LoginForm
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
+
+@app.route('/in-english')
+def in_english():
+    return render_template('in_english.html')
+
 
 @app.route('/ilmoittautuminen', methods=['GET', 'POST'])
 def signup():
