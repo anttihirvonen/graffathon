@@ -1,15 +1,25 @@
 # -*- coding: utf-8 -*-
 from flask.ext.wtf import Form
 from wtforms import TextField, PasswordField, TextAreaField, validators
-from wtforms.validators import Required
-from models import Admin
+from wtforms.validators import Required, StopValidation, ValidationError
+from models import Admin, SignUp
 from flask import flash
+
+def validate_email(form, field):
+	existing_email = SignUp.query.filter_by(email=field.data).first()
+	
+	if existing_email:
+		raise ValidationError(u'Email already exists')
 
 class SignUpForm(Form):
 	name = TextField(u'Nimi', [validators.Required()])
-	email = TextField(u'Sähköposti', [validators.Email()])
+	email = TextField(u'Sähköposti', [validators.Email(), validate_email])
 	school = TextField(u'Koulu ja koulutusohjelma')
 	experience = TextAreaField(u'Kokemus demoscenestä')
+
+	def __init__(self, *a, **kw):
+		Form.__init__(self, *a, **kw)
+
 
 class LoginForm(Form):
 	username = TextField(u'Username', [validators.Required()])
