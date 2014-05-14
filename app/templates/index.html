@@ -5,15 +5,15 @@
 <div id="index-header">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1">
         <ul id="index-navigation" class="nav nav-pills">
           <li><a href="{{ url_for('info') }}">Info</a></li>
           <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
           <li><a href="{{ url_for('in_english') }}">In English</a></li>
         </ul>
         <h1>Tule oppimaan tietokonegrafiikkaa!</h1>
-        <p>Graffathon on n. 30 tunnin mittainen hackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma, eli demo.</p>
-        <a href="{{ url_for('signup') }}" class="btn btn-default btn-lg">Ilmoittaudu!</a>
+        <p class="lead">Graffathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a href="{{ url_for('info') }}">Tutustu tarkemmin!</a>.</p>
+        <a href="{{ url_for('signup') }}" class="btn btn-default btn-lg">Varaa paikkasi!</a>
 
       </div>
       <div class="clearfix"></div>
@@ -26,12 +26,13 @@
     <div class="col-md-8">
       <h2>Mistä tapahtumassa on kyse?</h2>
       <p>
-      Graffathon on workshop-tyylinen viikonlopun ajan kestävä tapahtuma, jossa on tarkoitus tutustua grafiikkaohjelmointiin itse asioita kokeillen. Tapahtuma on jatkoa viime vuonna järjestetylle suuren suosion keränneelle <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics-tapahtumalle</a>, joka keräsi suuren suosion. Tänä vuonna pyrimme tekemään tapahtumasta vielä aloittelijaystävällisemmän, eli tarjoamme enemmän varsinaiseen tekemiseen liittyviä presiksiä ja workshoppeja sekä muuta opastusta.
+      Graffathon on hackathon, jossa on tarkoitus tutustua grafiikkaohjelmointiin itse asioita kokeillen. Tapahtuma on jatkoa viime vuonna järjestetylle suuren suosion keränneelle <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics-tapahtumalle</a>, joka keräsi suuren suosion. Tänä vuonna pyrimme tekemään tapahtumasta vielä aloittelijaystävällisemmän, eli tarjoamme enemmän varsinaiseen tekemiseen liittyvää sisältöä presisten ja workshoppien muodossa.
       </p>
 
       <p>
-      <b>Osallistuaksesi tarvitset vain pohjatietoja ohjelmoinnista sekä matematiikasta (esim. koulun peruskursseilla opetetut tiedot) – sinun ei siis tarvitse osata tehdä tietokonegrafiikkaa, musiikkia tai mallinnusta etukäteen. Tuo mukanasi tietokone ja eväitä (keittiö löytyy)</b>. Tietokoneenkaan ei tarvitse olla viimeisintä rautaa, sillä viikonloppuna ei ole tarkoitus luoda järjetöntä 3D-efektitykitystä, vaan keskittyä tuottamaan jotain reaaliajassa pyörivää grafiikkaa.
+      <b>Osallistuaksesi tarvitset vain pohjatietoja ohjelmoinnista (käytännössä mistä tahansa kielestä) sekä matematiikasta (esim. koulun peruskursseilla opetetut tiedot) – sinun ei siis etukäteen tarvitse osata koodata tietokonegrafiikkaa, tehdä musiikkia, piirtää tai mallintaa. Tuo mukanasi vain tietokone ja eväitä</b>. Tarjoamme jotain eväitä myös osallistumismaksua vastaan – nämä tiedot löydät <a href="{{ url_for('info') }}">infosivultaa</a>. Tietokoneenkaan ei tarvitse olla viimeisintä rautaa, sillä viikonloppuna ei ole tarkoitus luoda järjetöntä 3D-efektitykitystä, vaan keskittyä tuottamaan jotain reaaliajassa pyörivää grafiikkaa. Käytännössä siis mikä tahansa tietokone käy.
       </p>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLmRDkQf8W1WF7SONaMtqW6grVj9N44HkI" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-md-4">
       <h2>Sponsorit</h2>
