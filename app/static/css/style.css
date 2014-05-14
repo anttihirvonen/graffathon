@@ -56,3 +56,14 @@ footer a {
 #timetable {
     display: none;
 }
+
+#timetable .what {
+    font-weight: bold;
+}
+
+#timetable .description {
+    display: block;
+    font-size 12px;
+    margin-top: 5px;
+    max-width: 400px;
+}

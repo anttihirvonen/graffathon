@@ -7,7 +7,7 @@
   <tr class="{{ css-class }}">
     <td>{{ when }}</td>
     <td>{{ who }}</td>
-    <td>{{ what }}</td>
+    <td><span class="what">{{{ what }}}</span> <span class="description">{{ description }}</span></td>
   </tr>
 </script>
 <script id="timetable-header-template" type="text/x-handlebars-template">
@@ -17,6 +17,12 @@
 </script>
 {% endraw %}
 <script type="text/javascript">
+  Handlebars.registerHelper('breaklines', function(text) {
+    text = Handlebars.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new Handlebars.SafeString(text);
+  });
+
   window.onload = function() { init() };
 
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/16Idx3ZiHEpjGW58gsZWlDEzMhfDQbw22ncr_iKdIiFU/pubhtml';
