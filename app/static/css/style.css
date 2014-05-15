@@ -44,6 +44,10 @@ footer a {
     margin-bottom: 70px;
 }
 
+#indexnav-container {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 /* Index page */
 
 #index-header {
@@ -51,7 +55,6 @@ footer a {
     height: 400px;
     padding-top: 20px;
     /*background-color: rgb(76, 177, 76);*/
-    background-color: #505051;
     background-image: url('../../static/img/index-header-bg.jpg');
     color: white;
     text-align: center;

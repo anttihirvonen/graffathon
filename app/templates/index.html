@@ -2,13 +2,15 @@
 {% block extra_head %}{% endblock %}
 {% block content %}
 {% block nav %}{% endblock %}
-  <div id="index-header">
-    <ul id="general-nav" class="nav nav-pills">
-      <li><a href="{{ url_for('index') }}">Index</a></li>
-      <li><a href="{{ url_for('info') }}">Info</a></li>
-      <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
-      <li><a href="{{ url_for('in_english') }}">In English</a></li>
-    </ul>
+  <div id="index-header" class="header">
+    <div id="indexnav-container">
+      <ul id="general-nav" class="nav nav-pills">
+        <li><a href="{{ url_for('index') }}"><img src="static/img/nav-logo.png"></a></li>
+        <li><a href="{{ url_for('info') }}">Info</a></li>
+        <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
+        <li><a href="{{ url_for('in_english') }}">In English</a></li>
+      </ul>
+    </div>
   </div>
 
   <div class="container">
