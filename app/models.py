@@ -10,13 +10,15 @@ class SignUp(db.Model):
 	email = db.Column(db.String(80))
 	school = db.Column(db.String(80))
 	experience = db.Column(db.Text)
+	paid = db.Column(db.Boolean)
 	created = db.Column(db.DateTime)
 
-	def __init__(self, name, email, school, experience, created=None):
+	def __init__(self, name, email, school, experience, paid, created=None):
 		self.name = name
 		self.email = email
 		self.school = school
 		self.experience = experience
+		self.paid = paid
 		if created == None:
 			created = datetime.utcnow()
 		self.created = created

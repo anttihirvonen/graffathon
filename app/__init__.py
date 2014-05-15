@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
+from flask.ext.mail import Message, Mail
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -16,8 +17,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = '/login'
 
+mail = Mail(app)
+mail.init_app(app)
+
 from models import SignUp, Admin
 from forms import SignUpForm, LoginForm
+from emails import send_email
 
 
 @app.route('/')
@@ -40,13 +45,15 @@ def signup():
 	form = SignUpForm()
 
 	if request.method == 'POST' and form.validate_on_submit():
-		signup = SignUp("", "", "", "")
+		signup = SignUp("", "", "", "", False)
 		signup.name = form.name.data
 		signup.email = form.email.data
 		signup.school = form.school.data
 		signup.experience = form.experience.data
 		db.session.add(signup)
 		db.session.commit()
+
+		send_email("Testing", app.config['ADMINS'][0], [form.email.data], "Just testing", "")
 		return redirect('/')
 
 	return render_template('signup.html', form=form)
@@ -73,5 +80,5 @@ def load_user(userid):
 @app.route('/osallistujat')
 @login_required
 def show_participants():
-	signups = SignUp.query.order_by(SignUp.created.desc())
+	signups = SignUp.query.order_by(SignUp.created.asc())
 	return render_template('participants.html', signups=signups)
