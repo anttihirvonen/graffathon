@@ -7,13 +7,25 @@
       <h1>Ilmoittaudu tapahtumaan</h1>
     </div>
     <div class="col-md-6">
-      <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan. Täytettyäsi lomakkeen lähetämme sinulla automaattisesti sähköpostin, joka
-      sisältää tiedot osallistumismaksun (10 euroa) maksamista varten. Sinulla on viikko aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka
-      vapautuu jollekin toiselle halukkaalle.</p>
+      <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan. Täytettyäsi lomakkeen lähetämme sinulle automaattisesti sähköpostin, joka
+      sisältää tiedot osallistumismaksun (10 euroa) maksamista varten. Sinulla on viikko aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
       <h2>Voiko osallistumisen perua maksun jälkeen?</h2>
       <p>Osallistumisen voi perua 1.6.2014 asti. Tämän jälkeen osallistumismaksua ei enää palauteta, vaikka et pääsisi osallistumaan tapahtumaan. Voit kuitenkin
       yrittää houkutella kaverisi tilallesi.</p>
     </div>
+    <br>
+
+    <div class="col-md-12">
+      <!--<img src="{{ url_for('static', filename='soon.jpg') }}" />-->
+      <h1>Signup</h1>
+    </div>
+    <div class="col-md-6">
+      <p>You can sign up for the event by filling out the following form. When you submit it, we will send you an automated email that contains payment details for the entrance fee (10 euros). You need to pay it within the following week - if you do not, your signup will be removed from our database and your slot will be freed for someone else who wants to participate.</p>
+      <h2>Can the admission be cancelled after paying?</h2>
+      <p>The admission can be cancelled and refunded until the 1st of June 2014. After that the entrance fee will not be refunded even if you cannot make it to the event. You can persuade a friend to participate in your place though!</p>
+    </div>
+    <br>
+
     <div class="col-md-6">
       <form class="form-horizontal" method="post">
         {% macro form_input(input) -%}
@@ -39,7 +51,7 @@
 
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Ilmoittaudu!</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Ilmoittaudu! // Sign up!</button>
           </div>
         </div>
       </form>

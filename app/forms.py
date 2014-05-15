@@ -12,10 +12,10 @@ def validate_email(form, field):
 		raise ValidationError(u'Email already exists')
 
 class SignUpForm(Form):
-	name = TextField(u'Nimi', [validators.Required()])
-	email = TextField(u'Sähköposti', [validators.Email(), validate_email])
-	school = TextField(u'Koulu ja koulutusohjelma')
-	experience = TextAreaField(u'Kokemus demoscenestä')
+	name = TextField(u'Nimi // Name', [validators.Required()])
+	email = TextField(u'Sähköposti // Email', [validators.Email(), validate_email])
+	school = TextField(u'Koulu ja koulutusohjelma // School and degree programme')
+	experience = TextAreaField(u'Kokemus demoscenestä // Demoscene experience')
 
 	def __init__(self, *a, **kw):
 		Form.__init__(self, *a, **kw)
