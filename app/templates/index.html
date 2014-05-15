@@ -1,8 +1,10 @@
 {% extends 'base_with_nav_and_footer.html' %}
 {% block extra_head %}{% endblock %}
-{% block content %}
 {% block nav %}{% endblock %}
-  <div id="index-header" class="header">
+{% block content %}
+
+<div id="index-header">
+
     <div id="indexnav-container">
       <ul id="general-nav" class="nav nav-pills">
         <li><a href="{{ url_for('index') }}"><img src="static/img/nav-logo.png"></a></li>
@@ -11,21 +13,23 @@
         <li><a href="{{ url_for('in_english') }}">In English</a></li>
       </ul>
     </div>
-  </div>
 
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
 
         <h1>Tule oppimaan tietokonegrafiikkaa!</h1>
-        <p class="lead">Graffathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a href="{{ url_for('info') }}">Tutustu tarkemmin!</a>.</p>
+        <p class="lead">Gr
+        affathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a href="{{ url_for('info') }}">Tutustu tarkemmin!</a>.</p>
         <a href="{{ url_for('signup') }}" class="btn btn-default btn-lg">Varaa paikkasi!</a>
 
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
-</div>
+
+</div> <!--index-header-->
+
 <!-- main content -->
 <div class="container">
   <div class="row">
