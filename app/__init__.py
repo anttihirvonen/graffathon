@@ -45,7 +45,7 @@ def signup():
 	form = SignUpForm()
 
 	if request.method == 'POST' and form.validate_on_submit():
-		signup = SignUp("", "", "", "")
+		signup = SignUp("", "", "", "", False)
 		signup.name = form.name.data
 		signup.email = form.email.data
 		signup.school = form.school.data
@@ -80,5 +80,5 @@ def load_user(userid):
 @app.route('/osallistujat')
 @login_required
 def show_participants():
-	signups = SignUp.query.order_by(SignUp.created.desc())
+	signups = SignUp.query.order_by(SignUp.created.asc())
 	return render_template('participants.html', signups=signups)

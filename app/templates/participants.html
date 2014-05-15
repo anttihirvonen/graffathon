@@ -1,16 +1,31 @@
 {% extends 'base_with_nav_and_footer.html' %}
 {% block content %}
+<a href="/logout">Logout</a>
 <div class="container">
-	<a href="/logout">Logout</a>
-	<div class="row">
-		<div class="col-md-8">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nimi</th>
+				<th>Sähköposti</th>
+				<th>Koulu ja koulutusohjelma</th>
+				<th>Kokemus demoscenestä</th>
+				<th>Maksanut</th>
+			</tr>
+		</thead>
+		<tbody>
 			{% for s in signups %}
-				<div>
-					{{s.name}} {{s.email}} {{s.school}} {{s.experience}}
-				</div>
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{s.name}}</td> 
+					<td>{{s.email}}</td>
+					<td>{{s.school}}</td> 
+					<td>{{s.experience}}</td>
+					<td>{{s.paid}}</td>
+				</tr>
 			{% endfor %}
-		</div>
-	</div>
+		</tbody>
+	</table>
 </div>
 
 
