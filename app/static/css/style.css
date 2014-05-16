@@ -36,6 +36,8 @@ footer a {
 }
 
 .nav {
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-shadow: 1px 1px #333;
 }
 
@@ -48,6 +50,7 @@ footer a {
 .nav a {
     color: white;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .nav a:hover {
@@ -56,12 +59,11 @@ footer a {
 }
 
 #graffathon-logo {
-    padding-top: 4px;
-    height: 50px;
+    height: 90px;
 }
 
 #indexnav-container {
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgba(20,20,20, 0.6);
     margin-bottom: 30px;
 }
 
@@ -69,7 +71,7 @@ footer a {
 
 #index-header {
     width: 100%;
-    height: 400px;
+    height: 450px;
     background-image: url('../../static/img/index-header-bg.jpg');
     background-position: center;
     color: white;
@@ -81,13 +83,17 @@ footer a {
     text-shadow: 1px 1px #333;
 }
 
-#tuleoppimaan a {
+#tuleoppimaan a { /*varaa paikkasi*/
     color: #f49110;
-    text-shadow: 1px 1px 1px #ddd;
+    text-shadow: 1px 1px 2px #888;
 }
 
 #tuleoppimaan #tutustutarkemmin {
     text-shadow: 0.9px 0.9px 1px #333;
+}
+
+.btn-default { /*varaa paikkasi*/
+    background-color: #eee;
 }
 
 #timetable {
