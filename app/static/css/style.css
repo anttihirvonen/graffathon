@@ -1,15 +1,15 @@
 /* Main stylesheet */
 
 body {
-    background-color: #a6adb1;
+    background-color: #dee7eb;
 }
 
 body a {
-    color: #b36f04;
+    color: #e28737;
 }
 
 body a:hover {
-    color: #d88707;
+    color: #a84707;
 }
 
 footer {
@@ -36,7 +36,6 @@ footer a {
 }
 
 .nav {
-    padding: 4px 0 4px 0;
     text-shadow: 1px 1px #333;
 }
 
@@ -54,6 +53,11 @@ footer a {
 .nav a:hover {
     color: #333;
     text-shadow: 1px 1px #ddd;
+}
+
+#graffathon-logo {
+    padding-top: 4px;
+    height: 50px;
 }
 
 #indexnav-container {
@@ -78,8 +82,12 @@ footer a {
 }
 
 #tuleoppimaan a {
-    color: #fda925;
-    text-shadow: 1px 1px #333;
+    color: #f49110;
+    text-shadow: 1px 1px 1px #ddd;
+}
+
+#tuleoppimaan #tutustutarkemmin {
+    text-shadow: 0.9px 0.9px 1px #333;
 }
 
 #timetable {
