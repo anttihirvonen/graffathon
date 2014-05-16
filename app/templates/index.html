@@ -7,21 +7,20 @@
 
     <div id="indexnav-container">
       <ul id="general-nav" class="nav nav-pills">
-        <li><a href="{{ url_for('index') }}"><img src="static/img/nav-logo.png"></a></li>
+        <a href="{{ url_for('index') }}"><img src="static/img/nav-logo.png"></a>
         <li><a href="{{ url_for('info') }}">Info</a></li>
         <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
         <li><a href="{{ url_for('in_english') }}">In English</a></li>
       </ul>
     </div>
 
-  <div class="container">
+  <div class="container" id="tuleoppimaan">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
 
         <h1>Tule oppimaan tietokonegrafiikkaa!</h1>
-        <p class="lead">Gr
-        affathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a href="{{ url_for('info') }}">Tutustu tarkemmin!</a>.</p>
-        <a href="{{ url_for('signup') }}" class="btn btn-default btn-lg">Varaa paikkasi!</a>
+        <p class="lead">Graffathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a class="no-text-shadow" href="{{ url_for('info') }}">Tutustu tarkemmin!</a></p>
+        <a href="{{ url_for('signup') }}" class="btn btn-default btn-lg no-text-shadow">Varaa paikkasi!</a>
 
       </div>
       <div class="clearfix"></div>
@@ -40,7 +39,7 @@
       </p>
 
       <p>
-      <b>Osallistuaksesi tarvitset vain pohjatietoja ohjelmoinnista (käytännössä mistä tahansa kielestä) sekä matematiikasta (esim. koulun peruskursseilla opetetut tiedot) – sinun ei siis etukäteen tarvitse osata koodata tietokonegrafiikkaa, tehdä musiikkia, piirtää tai mallintaa. Tuo mukanasi vain tietokone ja eväitä</b>. Tarjoamme jotain eväitä myös osallistumismaksua vastaan – nämä tiedot löydät <a href="{{ url_for('info') }}">infosivultaa</a>. Tietokoneenkaan ei tarvitse olla viimeisintä rautaa, sillä viikonloppuna ei ole tarkoitus luoda järjetöntä 3D-efektitykitystä, vaan keskittyä tuottamaan jotain reaaliajassa pyörivää grafiikkaa. Käytännössä siis mikä tahansa tietokone käy.
+      <b>Osallistuaksesi tarvitset vain pohjatietoja ohjelmoinnista (käytännössä mistä tahansa kielestä) sekä matematiikasta (esim. koulun peruskursseilla opetetut tiedot) – sinun ei siis etukäteen tarvitse osata koodata tietokonegrafiikkaa, tehdä musiikkia, piirtää tai mallintaa. Tuo mukanasi vain tietokone ja eväitä</b>. Tarjoamme jotain eväitä myös osallistumismaksua vastaan – nämä tiedot löydät <a href="{{ url_for('info') }}">infosivulta</a>. Tietokoneenkaan ei tarvitse olla viimeisintä rautaa, sillä viikonloppuna ei ole tarkoitus luoda järjetöntä 3D-efektitykitystä, vaan keskittyä tuottamaan jotain reaaliajassa pyörivää grafiikkaa. Käytännössä siis mikä tahansa tietokone käy.
       </p>
       <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLmRDkQf8W1WF7SONaMtqW6grVj9N44HkI" frameborder="0" allowfullscreen></iframe>
     </div>
