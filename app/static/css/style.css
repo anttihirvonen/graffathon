@@ -1,11 +1,11 @@
 /* Main stylesheet */
 
 body {
-    background-color: #dee7eb;
+    background-color: #fff;
 }
 
 body a {
-    color: #e28737;
+    color: #930ca7;
 }
 
 body a:hover {
@@ -14,7 +14,7 @@ body a:hover {
 
 footer {
     height: 200px;
-    background-color: #333;
+    background-color: #34042a;
     color: #ccc;
     text-align: center;
 }
@@ -63,7 +63,7 @@ footer a {
 }
 
 #indexnav-container {
-    background-color: rgba(20,20,20, 0.6);
+    background-color: rgba(0,0,0, 0.3);
     margin-bottom: 30px;
 }
 
@@ -83,17 +83,27 @@ footer a {
     text-shadow: 1px 1px #333;
 }
 
-#tuleoppimaan a { /*varaa paikkasi*/
-    color: #f49110;
-    text-shadow: 1px 1px 2px #888;
+#tuleoppimaan #varaapaikkasi {
+    color: #af4099;
+    text-shadow: 1px 1px 1px #bbb;
 }
 
 #tuleoppimaan #tutustutarkemmin {
+    color: #c241a8;
     text-shadow: 0.9px 0.9px 1px #333;
 }
 
 .btn-default { /*varaa paikkasi*/
     background-color: #eee;
+}
+
+.btn-primary { /*ilmoittaudu*/
+    background-color: #5e154f;
+    border-color: #4d083f;
+}
+
+.btn-primary:hover { /*ilmoittaudu*/
+    background-color: #6f1e5e;
 }
 
 #timetable {
