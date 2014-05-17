@@ -6,10 +6,11 @@ body {
 
 body a {
     color: #930ca7;
+    text-decoration: underline;
 }
 
 body a:hover {
-    color: #a84707;
+    color: #c241a8;
 }
 
 footer {
@@ -51,6 +52,7 @@ footer a {
     color: white;
     font-weight: bold;
     font-size: 25px;
+    text-decoration: none;
 }
 
 .nav a:hover {
@@ -86,11 +88,13 @@ footer a {
 #tuleoppimaan #varaapaikkasi {
     color: #af4099;
     text-shadow: 1px 1px 1px #bbb;
+    text-decoration: none;
 }
 
 #tuleoppimaan #tutustutarkemmin {
     color: #c241a8;
     text-shadow: 0.9px 0.9px 1px #333;
+    text-decoration: none;
 }
 
 .btn-default { /*varaa paikkasi*/

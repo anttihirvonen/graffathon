@@ -1,13 +1,174 @@
 {% extends 'base_with_nav_and_footer.html' %}
+
+{% block extra_head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/handlebars-v1.3.0.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/tabletop.js') }}"></script>
+{% raw %}
+<script id="timetable-row-template" type="text/x-handlebars-template">
+  <tr class="{{ css-class }}">
+    <td>{{ when }}</td>
+    <td>{{ who }}</td>
+    <td><span class="what">{{{ what }}}</span> <span class="description">{{ description }}</span></td>
+  </tr>
+</script>
+<script id="timetable-header-template" type="text/x-handlebars-template">
+  <tr class="{{ css-class }}">
+    <th colspan=3>{{ when }}</th>
+  </tr>
+</script>
+{% endraw %}
+<script type="text/javascript">
+  Handlebars.registerHelper('breaklines', function(text) {
+    text = Handlebars.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new Handlebars.SafeString(text);
+  });
+
+  window.onload = function() { init() };
+
+  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/16Idx3ZiHEpjGW58gsZWlDEzMhfDQbw22ncr_iKdIiFU/pubhtml';
+
+  function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     wanted: ['Aikataulu'],
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    var headerTemplate = Handlebars.compile($("#timetable-header-template").html());
+    var rowTemplate = Handlebars.compile($("#timetable-row-template").html());
+
+    $(function () {
+      var $timetable = $('#timetable > tbody');
+      for (row in data) {
+        if (data[row].header) {
+          $timetable.append(headerTemplate(data[row]));
+        } else {
+          $timetable.append(rowTemplate(data[row]));
+        }
+      }
+
+      $("#timetable-loading-message").slideUp();
+      $("#timetable").slideDown();
+    });
+  }
+
+</script>
+{% endblock %}
+
+
 {% block content %}
 
 <div class="container">
   <div class="col-md-12">
     <h1>Graffathon in a nutshell</h1>
-    <p>TBD: short description, focus, timetable?, about organizers, etc.</p>
-    <p>Graffathon is a hackathon focused on learning graphics programming by trying it out hands on. It is the sequel to the popular event <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics</a>, which was held last year. This year we strive to make the event even more beginner-friendly by offering more presentations and workshops that focus on the practical skills needed to create computer graphics.</p>
+    <p>Graffathon is a hackathon focused on learning graphics programming by trying it out hands on. It is the sequel to the popular event <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics</a>, which was held last year. This year we strive to make the event even more beginner-friendly by offering more presentations and workshops that focus on the practical skills needed to create computer graphics. You can sign up for the event at the <a href="{{ url_for('signup') }}">signup page</a>!</p>
     <p><b>To participate you only need basic programming skills (from any language) and math (basic courses from school for example) - you do not have to be able to code graphics, make music, draw or program. Just bring a computer and something to eat. You will learn.</b> We also offer some snacks for the price of entry. The computer does not have to be the latest and greatest, you do not need a crazy graphics card to try out graphics programming. Almost any computer will do.
     </p>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Competitions</h1>
+      <p class="lead">Coding and creating graphics by other means.</p>
+      <p>In Graffathon there are multiple competitions, "compos". The main event is the compo for the best realtime audiovisual program, which is knows as the democompo. A couple of smaller compos are organized as well and you are free to participate.</p>
+      <h2>Democompo</h2>
+      <p>The democompo is the main competition of the event.</p>
+      <h2>3d-modeling compo</h2>
+      <p>Model something! Subject will be announced on location.</p>
+      <h2>Drawing compo</h2>
+      <p>Draw something! Subject will be announced on location.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Schedule</h1>
+      <p class="lead">30 hours of effective learning!</p>
+      <p>The schedule is not final, only the starting and ending times are set in stone.</p>
+      <div class="table-responsive table-striped" id="timetable-wrapper">
+        <div class="alert alert-block alert-info" id="timetable-loading-message">Loading schedule, wait a moment...</div>
+        <table id="timetable" class="table table-hover">
+          <tbody>
+            <!-- contents are pulled from Google spreadsheet using JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Location</h2>
+      <p>The event takes place at the App Campus facilities in Aalto Innovation House and the address is Otaniementie 19-21. The map on the right illustrates the location. The entrance to App Campus can be found at the left end of the house (seen from the street). Further instructions will be found at the door.</p>
+      <p>App Campus has two well-equipped kitchens (oven included), a gas grill at the balcony, free coffee, showers, rooms for brainstorming, workspace and a presentation room. See the pictures below.</p>
+      <p>There are free parking slots in case you are arriving by car. You can get there easily by public transport as well, buses from Espoo, Helsinki and Vantaa bring you to 500 meters from the site.</p>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
+        </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
+        </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&source=embed&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946" style="color:#0000FF;text-align:left">Show larger map</a></small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>FAQ</h1>
+    </div>
+    <div class="col-md-6">
+      <h4>What do people do at the event?</h4>
+      <p>Code, socialize, listen to presentations and at the end enjoy the amazing compo show. In addition, there will be little fun stuff to do during the whole event in case you hit a creative block.</p>
+      <h4>What do I need to know to participate?</h4>
+      <p>You should have a very basic understanding of programming and know some simple mathematics (mostly trigonometry, linear algebra (=vectors) and matrices for 3d-graphics). That's all! Don't worry, there will be helpful people around and the presentations will aid you in getting started!</p>
+      <h4>Why do you charge money for the event?</h4>
+      <p>Good question! Code+Audio+Graphics, which we organized last year, was free but this year we wanted to make the event even better. The entrance fee includes perks like free coffee and fruits. A part of the admissions will be paid back to the visitors in form of good prizes. The rest of the money will be used to renew the DOT library so you will be supporting learning as well!</p>
+    </div>
+    <div class="col-md-6">
+      <h4>Can I sleep at the event?</h4>
+      <h4>What do I need with me?</h4>
+      <h4>Anything else?</h4>
+    </div>
   </div>
 </div>
 {% endblock %}
