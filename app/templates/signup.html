@@ -1,12 +1,18 @@
 {% extends 'base_with_nav_and_footer.html' %}
+{% block short_header_content %}
+<h1>Ilmoittaudu mukaan!</h1>
+<p class="lead">Osallistuminen maksaa 10 euroa ja sisältää tapahtuman mahtavan sisällön lisäksi huimia etuja.</p>
+{% endblock %}
 {% block content %}
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <!--<img src="{{ url_for('static', filename='soon.jpg') }}" />-->
-      <h1>Ilmoittaudu tapahtumaan</h1>
+      <h2>Ilmoittaudu tapahtumaan</h2>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-6">
       <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan. Täytettyäsi lomakkeen lähetämme sinulle automaattisesti sähköpostin, joka
       sisältää tiedot osallistumismaksun (10 euroa) maksamista varten. Sinulla on viikko aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
@@ -16,7 +22,7 @@
     </div>
     <br>
 
-    <div class="col-md-12">
+    <div class="col-md-6">
       <h1>Signup</h1>
     </div>
     <div class="col-md-6">

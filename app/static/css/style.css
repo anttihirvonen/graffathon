@@ -25,6 +25,19 @@ footer a {
     text-decoration: underline;
 }
 
+#short-header {
+    background-image: radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
+    padding: 20px 0;
+}
+
+#short-header h1 {
+    color: white;
+}
+
+#short-header p {
+    color: white;
+}
+
 /* Base fonts etc. */
 
 h1, h2, h3 {
