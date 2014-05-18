@@ -2,14 +2,26 @@
 {% block body %}
 
 {% block nav %}
-<div id="general-header">
-  <ul id="general-nav" class="nav nav-pills">
-    <a href="{{ url_for('index') }}"><img id="graffathon-logo" src="static/img/nav-logo.png"></a>
-    <li><a href="{{ url_for('info') }}">Info</a></li>
-    <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
-    <li><a href="{{ url_for('in_english') }}">In English</a></li>
-  </ul>
-</div>
+<nav id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url_for('index') }}">Graffathon</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('info') }}">Info</a></li>
+        <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
+        <li><a href="{{ url_for('in_english') }}">In English</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 {% endblock %}
 
 <div id="content">

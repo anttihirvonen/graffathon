@@ -26,6 +26,7 @@ footer a {
 }
 
 /* Navs */
+/* Main nav is to top navigation */
 #main-nav {
     padding: 5px 0;
     margin-bottom: 0;
@@ -36,37 +37,27 @@ footer a {
     color: white;
 }
 
-.nav {
+#main-nav .nav {
     padding-top: 5px;
     padding-bottom: 5px;
     text-shadow: 1px 1px #333;
 }
 
-.nav li {
-    float:none;
-    display:inline-block;
-    text-align: center;
-}
-
-.nav a {
+#main-nav .nav a {
     color: white;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 16px;
     text-decoration: none;
 }
 
-.nav a:hover {
+#main-nav .nav a:hover {
     color: #333;
     text-shadow: 1px 1px #ddd;
 }
 
 #graffathon-logo {
     height: 90px;
-}
-
-#indexnav-container {
-    background-color: rgba(0,0,0, 0.3);
-    margin-bottom: 30px;
+    display: none;
 }
 
 /* Index page */

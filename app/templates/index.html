@@ -1,33 +1,19 @@
 {% extends 'base_with_nav_and_footer.html' %}
 {% block extra_head %}{% endblock %}
-{% block nav %}{% endblock %}
 {% block content %}
 
 <div id="index-header">
-
-    <div id="indexnav-container">
-      <ul id="general-nav" class="nav nav-pills">
-        <a href="{{ url_for('index') }}"><img id="graffathon-logo" src="static/img/nav-logo.png"></a>
-        <li><a href="{{ url_for('info') }}">Info</a></li>
-        <li><a href="{{ url_for('signup') }}">Ilmoittaudu!</a></li>
-        <li><a href="{{ url_for('in_english') }}">In English</a></li>
-      </ul>
-    </div>
-
   <div class="container" id="tuleoppimaan">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-
         <h1>Tule oppimaan tietokonegrafiikkaa!</h1>
         <p class="lead">Graffathon on n. 30 tunnin mittainen aloittelijoille suunnattu tietokonegrafiikkahackathon, jonka aikana on tarkoitus tuottaa audiovisuaalinen reaaliaikainen ohjelma. <a id="tutustutarkemmin" href="{{ url_for('info') }}">Tutustu tarkemmin!</a></p>
         <p><a id="varaapaikkasi" href="{{ url_for('signup') }}" class="btn btn-default btn-lg">Varaa paikkasi!</a></p>
         <h2>6.-8.6.2014, App Campus, Otaniemi</h2>
-
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
-
 </div> <!--index-header-->
 
 <!-- main content -->
