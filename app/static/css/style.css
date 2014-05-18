@@ -71,7 +71,7 @@ h1, h2, h3 {
 }
 
 #main-nav .nav a {
-    margin-left: 40px;
+    margin-left: 70px;
     font-family: 'Oswald', sans-serif;
     color: black;
     font-weight: 300;
@@ -81,14 +81,16 @@ h1, h2, h3 {
 
     color: rgb(74, 36, 99)
     //background-color: rgb(76, 247, 185);
-    padding: 6px 25px;
-    border-radius: 60px;
+    padding: 6px 0;
     margin-top: 10px;
 }
 
+#main-nav .nav a.active {
+    border-bottom: 1px dotted black;
+}
+
 #main-nav .nav a:hover {
-    background-color: rgb(76, 247, 185);
-    color: #333;
+    border-bottom: 1px dotted black;
 }
 
 #graffathon-logo {
@@ -135,19 +137,16 @@ h1, h2, h3 {
 
 #polaroid-1 > .inner {
     background-image: url('../img/polaroid1.jpg');
-    /* TODO: remove this when images have been scaled to quads */
     background-size: cover;
 }
 
 #polaroid-2 > .inner {
     background-image: url('../img/polaroid2.jpg');
-    /* TODO: remove this when images have been scaled to quads */
     background-size: cover;
 }
 
 #polaroid-3 > .inner {
     background-image: url('../img/polaroid3.jpg');
-    /* TODO: remove this when images have been scaled to quads */
     background-size: cover;
 }
 
