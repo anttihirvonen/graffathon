@@ -100,7 +100,7 @@ h1, h2, h3 {
 
 #index-header {
     width: 100%;
-    padding: 50px 0 50px;
+    padding: 110px 0 50px 0;
     //background-image: url('../../static/img/index-header-bg.jpg');
     //background-color: gray;
     background-image: radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
