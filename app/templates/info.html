@@ -49,10 +49,17 @@
       }
 
       $("#timetable-loading-message").slideUp();
-      $("#timetable").slideDown();
+      $("#timetable").slideDown(function () {
+        $('[data-spy="scroll"]').each(function () {
+          var $spy = $(this).scrollspy('refresh')
+        });
+      });
     });
   }
 
+  $(function () {
+    $('body').scrollspy({ target: '#side-nav-wrapper' })
+  });
 </script>
 {% endblock %}
 {% block short_header_content %}
@@ -60,25 +67,27 @@
 <p class="lead">Graffathon kestää noin 30 tuntia, jonka aikana tuotetaan erilaisia tuotoksia.</p>
 {% endblock %}
 {% block content %}
-
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1>Järjestettävät kilpailut</h1>
-      <p class="lead">Koodausta sekä grafiikan luomista muilla keinoin.</p>
+    <div class="col-md-9">
+
+      <h2 id="general-section">Yleistä tietoa</h2>
+      <p>Lorem ipsum</p>
+
+      <hr>
+
+      <h2 id="competitions-section">Järjestettävät kilpailut</h2>
       <p>Graffathonissa järjestetään useampia kilpailuja eli "kompoja". Reaaliaikaisen audiovisuaalisen ohjelman kompo eli demokompo on kilpailun päätapahtuma. Tämän lisäksi järjestetään muutama pienempi kilpailu, joihin voi myös halutessaan osallistua (jos ehtii).</p>
-      <h2>Demokompo</h2>
+      <h3>Demokompo</h3>
       <p>Demokompo on tapahtuman varsinainen pääkilpailu.</p>
-      <h2>Mallinnuskompo</h2>
+      <h3>Mallinnuskompo</h3>
       <p>Mallinna jotain! Aihe annetaan paikan päällä.</p>
-      <h2>Piirustuskompo</h2>
+      <h3>Piirustuskompo</h3>
       <p>Piirrä jotain! Aihe annetaan paikan päällä.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Aikataulu</h1>
-      <p class="lead">Noin 30 tuntia tehokasta oppimista!</p>
+
+      <hr>
+
+      <h2 id="timetable-section">Aikataulu</h2>
       <p>Huom! Aikataulu on alustava ja varmaa on ainoastaa alku- ja loppuaika :)</p>
       <div class="table-responsive table-striped" id="timetable-wrapper">
         <div class="alert alert-block alert-info" id="timetable-loading-message">Aikataulua ladataan, odota hetki...</div>
@@ -88,84 +97,103 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Sijainti</h2>
-      <p>Tapahtuma järjestetään App Campuksen tiloissa Aalto Innovation Housessa, osoitteessa Otaniementie 19-21. Oikealta löytyvästä kartasta saa 
-      tarkemman käsityksen talon sijainnista. Käynti App Campuksen tiloihin
-      tapahtuu talon vasemmasta päädystä tieltä päin katsottuna. Oveen teipatusta lapusta löydät tarkemmat ohjeet.</p>
-      <p>App Campukselta löytyy muun muassa kaksi hyvinvarusteltua keittiötä (toisessa myös uuni), kaasugrilli parvekkeelta, ilmaista kahvia, suihkut, huoneita brainstormaamiseen, paljon työskentelytilaa
-      ja pimennettävä presentaatiohuone.
-      Alhaalta löytyvistä kuvista saa jonkinlaisen käsityksen tiloista.</p>
-      <p>Mikäli olet tulossa paikalle autolla, löytyy talon pihasta vapaita parkkipaikkoja. 
-      Bussilla pääsee n. 500-800 metrin päähän, olitpa sitten tulossa Espoosta, Helsingistä tai Vantaalta.</p>
+
+      <hr>
 
       <div class="row">
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
-        </a>
+        <div class="col-md-12">
+          <h2 id="location-section">Sijainti</h2>
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
-        </a>
+        <div class="col-md-8">
+          <p>Tapahtuma järjestetään App Campuksen tiloissa Aalto Innovation Housessa, osoitteessa Otaniementie 19-21. Oikealta löytyvästä kartasta saa 
+          tarkemman käsityksen talon sijainnista. Käynti App Campuksen tiloihin
+          tapahtuu talon vasemmasta päädystä tieltä päin katsottuna. Oveen teipatusta lapusta löydät tarkemmat ohjeet.</p>
+          <p>App Campukselta löytyy muun muassa kaksi hyvinvarusteltua keittiötä (toisessa myös uuni), kaasugrilli parvekkeelta, ilmaista kahvia, suihkut, huoneita brainstormaamiseen, paljon työskentelytilaa
+          ja pimennettävä presentaatiohuone.
+          Alhaalta löytyvistä kuvista saa jonkinlaisen käsityksen tiloista.</p>
+          <p>Mikäli olet tulossa paikalle autolla, löytyy talon pihasta vapaita parkkipaikkoja. 
+          Bussilla pääsee n. 500-800 metrin päähän, olitpa sitten tulossa Espoosta, Helsingistä tai Vantaalta.</p>
+
+          <div class="row">
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
+              </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
+              </a>
+            </div>
+          </div>
+
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
-        </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
-        </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
-        </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
-        </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
-        </a>
-        </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
-        </a>
+        <div class="col-md-4">
+          <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&source=embed&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946" style="color:#0000FF;text-align:left">Näytä suurempi kartta</a></small>
         </div>
       </div>
 
-    </div>
-    <div class="col-md-4">
-      <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&source=embed&hl=fi&geocode=&q=Otaniementie+21,+Espoo,+Suomi&aq=&sll=60.184753,24.82612&sspn=0.017262,0.045791&t=m&ie=UTF8&hq=&hnear=Otaniementie+21,+Espoo,+Suomi&z=14&ll=60.187285,24.813946" style="color:#0000FF;text-align:left">Näytä suurempi kartta</a></small>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>FAQ</h1>
-    </div>
-    <div class="col-md-6">
-      <h4>Mitä tapahtumassa tehdään?</h4>
-      <p>Koodataan, sosialisoidaan, kuunnellaan esityksiä sekä nautitaan loppuvaiheessa kilpailutöiden huikeasta showsta. Tarjolla on myös "väliaikaviihdykettä" mikäli mentaalinen blokki iskee.</p>
-      <h4>Mitä minun täytyy osata voidakseni osallistua?</h4>
-      <p>Sinun täytyy osata ohjelmoida jonkin verran sekä ymmärtää perustason matematiikkaa (lähinnä lineaarialgebraa eli vektoreja, tai jos aiot tehdä 3D-grafiikkaa niin matriiseja) sekä trigonometriaa. Muuta sinun ei tarvitse käytännössä tietää – oppia saat paikan päältä!</p>
-      <h4>Miksi tapahtuma on maksullinen?</h4>
-      <p>Hyvä kysymys! Viime vuonna järjestty CAG oli ilmainen, mutta halusimme tänä vuonna vielä parantaa tapahtuman tasoa. Osallistumismaksuun sisältyy hyviä etuja, kuten ilmaiset kahvit ja hedelmät. Osa osallistumismaksuista maksetaan myös takaisin kävijöille hyvien palkintojen muodossa. Loput jäävistä rahoista käytetään DOTin kirjaston uusimiseen, eli tuet samalla uuden oppimista!</p>
-    </div>
-    <div class="col-md-6">
-      <h4>Onko tapahtumassa mahdollisuus nukkua?</h4>
-      <h4>Mitä tarvitsen mukaani?</h4>
-      <h4>Vielä jotain mitä ihmisille voisi tulla mieleen?</h4>
+      <hr>
+
+      <h2 id="faq-section">FAQ</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Mitä tapahtumassa tehdään?</h4>
+          <p>Koodataan, sosialisoidaan, kuunnellaan esityksiä sekä nautitaan loppuvaiheessa kilpailutöiden huikeasta showsta. Tarjolla on myös "väliaikaviihdykettä" mikäli mentaalinen blokki iskee.</p>
+          <h4>Mitä minun täytyy osata voidakseni osallistua?</h4>
+          <p>Sinun täytyy osata ohjelmoida jonkin verran sekä ymmärtää perustason matematiikkaa (lähinnä lineaarialgebraa eli vektoreja, tai jos aiot tehdä 3D-grafiikkaa niin matriiseja) sekä trigonometriaa. Muuta sinun ei tarvitse käytännössä tietää – oppia saat paikan päältä!</p>
+          <h4>Miksi tapahtuma on maksullinen?</h4>
+          <p>Hyvä kysymys! Viime vuonna järjestty CAG oli ilmainen, mutta halusimme tänä vuonna vielä parantaa tapahtuman tasoa. Osallistumismaksuun sisältyy hyviä etuja, kuten ilmaiset kahvit ja hedelmät. Osa osallistumismaksuista maksetaan myös takaisin kävijöille hyvien palkintojen muodossa. Loput jäävistä rahoista käytetään DOTin kirjaston uusimiseen, eli tuet samalla uuden oppimista!</p>
+        </div>
+        <div class="col-md-6">
+          <h4>Onko tapahtumassa mahdollisuus nukkua?</h4>
+          <p>On. Pieni.</p>
+          <h4>Mitä tarvitsen mukaani?</h4>
+          <h4>Vielä jotain mitä ihmisille voisi tulla mieleen?</h4>
+        </div>
+      </div>
+    </div><!-- end main column -->
+
+    <div class="col-md-3">
+      <div id="side-nav-wrapper" >
+        <ul id="side-nav" class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top=230 data-offset-bottom=200>
+          <li class="active"><a href="#general-section">Yleistä</a></li>
+          <li><a href="#competitions-section">Kilpailut</a></li>
+          <li><a href="#timetable-section">Aikataulu</a></li>
+          <li><a href="#location-section">Sijainti</a></li>
+          <li><a href="#faq-section">FAQ</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

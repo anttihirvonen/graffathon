@@ -113,6 +113,16 @@ h1, h2, h3 {
     display: none;
 }
 
+#side-nav-wrapper {
+    margin-top: 20px;
+}
+
+#side-nav {
+    top: 0;
+    margin-top: 20px;
+    width: 200px;
+}
+
 /* Index page */
 
 #polaroids {
@@ -238,6 +248,6 @@ h1, h2, h3 {
 /* media queries */
 @media (min-width: 768px) {
     .container {
-        max-width: 940px;
+        max-width: 1080px;
     }
 }
