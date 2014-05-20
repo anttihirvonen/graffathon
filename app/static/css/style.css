@@ -25,11 +25,18 @@ body a:hover {
 }
 
 footer {
+    margin-top: 20px;
     height: 200px;
     background-color: #793473;
     background-image: radial-gradient(circle at top, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%);
     color: #ccc;
     text-align: center;
+    background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=626262&density=70&opacity=15'), radial-gradient(circle at top, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
+}
+
+footer .dot-logo {
+    margin: 20px 0;
+    max-width: 200px;
 }
 
 footer a {
