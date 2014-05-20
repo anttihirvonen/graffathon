@@ -26,8 +26,11 @@ footer a {
     text-decoration: underline;
 }
 
+.header {
+    background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=626262&density=70&opacity=15'), radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
+}
+
 #short-header {
-    background-image: radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
     padding: 20px 0;
 }
 
@@ -156,7 +159,6 @@ h1, h2, h3 {
     padding: 120px 0 70px 0;
     //background-image: url('../../static/img/index-header-bg.jpg');
     //background-color: gray;
-    background-image: radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
 
     background-position: center;
     color: white;
@@ -168,7 +170,7 @@ h1, h2, h3 {
     font-size: 60px;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 3px 3px rgba(0, 0, 0, 128);
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.3);
 }
 /*
 #tuleoppimaan {
