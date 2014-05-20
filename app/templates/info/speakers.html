@@ -1,0 +1,20 @@
+{% extends 'info/base.html' %}
+{% block info_content %}
+<h2 id="competitions-section">Puhujat ja ohjelma</h2>
+<p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin, että pidettäviin esityksiin ja workshoppeihin.</p>
+{% macro speaker(name, subject, description, image_url) -%}
+<div class="row">
+  <div class="col-md-2">
+    <img src="{{ image_url }}" />
+  </div>
+  <div class="col-md-10">
+    <h4>{{ name }} – <i>{{ subject }}</i></h4>
+    {{ description }}
+  </div>
+</div>
+{%- endmacro %}
+{{ speaker('Antti Hirvonen', '?', lipsum(n=1, max=60), '') }} 
+{{ speaker('Pauli Kemppinen', '?', lipsum(n=1, max=60), '') }} 
+{{ speaker('Matti Meikäläinen', '?', lipsum(n=1, max=60), '') }} 
+{{ speaker('Teemu Teekkari', '?', lipsum(n=1, max=60), '') }} 
+{% endblock %}

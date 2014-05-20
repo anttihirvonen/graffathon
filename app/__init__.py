@@ -52,6 +52,11 @@ def info_timetable():
     return render_template('info/timetable.html')
 
 
+@app.route('/info/speakers')
+def info_speakers():
+    return render_template('info/speakers.html')
+
+
 @app.route('/info/location')
 def info_location():
     return render_template('info/location.html')
