@@ -3,6 +3,17 @@
 body {
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* Change margins to comply with line-height change */
+p {
+    margin-bottom: 11px;
+}
+
+h1, h2, h3 {
+    margin-top: 22px;
+    margin-bottom: 11px;
 }
 
 body a {
