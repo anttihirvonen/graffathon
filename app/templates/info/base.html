@@ -1,0 +1,34 @@
+{% extends 'base_with_nav_and_footer.html' %}
+{% macro menu_item(func, text) -%}
+<li
+  class="{% if request.path == url_for(func) %}active{% endif %}" 
+>
+  <a href="{{ url_for(func) }}">{{ text }}</a>
+</li>
+{%- endmacro %}
+{% block extra_head %}
+{% endblock %}
+{% block short_header_content %}
+<h1>Tietoa tapahtumasta</h1>
+<p class="lead">Graffathon kestää noin 30 tuntia, jonka aikana tuotetaan valmis kilpailuteos.</p>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      {% block info_content %}{% endblock %}
+    </div>
+    <div class="col-md-3">
+      <div id="side-nav-wrapper" >
+        <ul id="side-nav" class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top=230 data-offset-bottom=200>
+          {{ menu_item('info', 'Yleistä') }}
+          {{ menu_item('info_competitions', 'Kilpailut') }}
+          {{ menu_item('info_timetable', 'Aikataulu') }}
+          {{ menu_item('info_location', 'Sijainti') }}
+          {{ menu_item('info_faq', 'UKK') }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -25,6 +25,13 @@ from forms import SignUpForm, LoginForm
 from emails import send_email
 
 
+# TODO: handling all these static page routes
+# manually is stupid. generate url's automatically
+# by walking the template directory and doing conversion
+# (_ -> -,) for urls and / -> _ for function names.
+# eg. /info/test-page -> template: info/test_page.html,
+# function name: info_test_page (usable for menus)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -32,7 +39,27 @@ def index():
 
 @app.route('/info')
 def info():
-    return render_template('info.html')
+    return render_template('info/index.html')
+
+
+@app.route('/info/competitions')
+def info_competitions():
+    return render_template('info/competitions.html')
+
+
+@app.route('/info/timetable')
+def info_timetable():
+    return render_template('info/timetable.html')
+
+
+@app.route('/info/location')
+def info_location():
+    return render_template('info/location.html')
+
+
+@app.route('/info/faq')
+def info_faq():
+    return render_template('info/faq.html')
 
 
 @app.route('/in-english')
