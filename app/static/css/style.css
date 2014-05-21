@@ -256,6 +256,16 @@ h1, h2, h3 {
     min-height: 600px;
 }
 
+.organizer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.organizer p {
+    margin-top: 5px;
+    font-size: 13px;
+}
+
 /* media queries */
 @media (min-width: 768px) {
     .container {

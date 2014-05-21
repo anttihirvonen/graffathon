@@ -67,6 +67,11 @@ def info_faq():
     return render_template('info/faq.html')
 
 
+@app.route('/team')
+def team():
+    return render_template('team.html')
+
+
 @app.route('/in-english')
 def in_english():
     return render_template('in_english.html')
