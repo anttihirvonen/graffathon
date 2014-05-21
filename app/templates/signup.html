@@ -1,7 +1,7 @@
 {% extends 'base_with_nav_and_footer.html' %}
 {% block short_header_content %}
 <h1>Ilmoittaudu mukaan!</h1>
-<p class="lead">Osallistuminen maksaa 10 euroa ja sisältää tapahtuman mahtavan sisällön lisäksi huimia etuja.</p>
+<p class="lead">Osallistuminen maksaa 5 euroa.</p>
 {% endblock %}
 {% block content %}
 
@@ -15,13 +15,12 @@
   <div class="row">
     <div class="col-md-6">
       <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan.</p>
-      <p>Täytettyäsi lomakkeen tarkistamme osallistumisesi tiedot. Tämän jälkeen saat sähköpostiin tiedot osallistumismaksun (10e) suorittamista varten. Sinulla on kolme päivää aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
+      <p>Täytettyäsi lomakkeen tarkistamme osallistumisesi tiedot. Tämän jälkeen saat sähköpostiin tiedot osallistumismaksun (5e) suorittamista varten. Sinulla on kolme päivää aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
       <h2>Mitä osallistumismaksulla saa?</h2>
       <p>Hyvän tapahtumasisällön lisäksi osallistumismaksulla</p>
       <ul>
-        <li>rahoitetaan osittain kilpailujen palkinnot, eli maksu käytännössä kierrätetään takaisin osallistujille</li>
+        <li>rahoitetaan osittain kilpailujen palkinnot</li>
         <li>kustannetaan ilmaiset kahvit ja muut juomat kahvikoneesta koko tapahtuman ajaksi</li>
-        <li>ostetaan hedelmiä tarjolle koko tapahtuman ajaksi</li>
         <li>tuetaan DOTin grafiikkakoodauskirjaston uudistamisprojektia.</li>
       </ul>
       <h2>Voiko osallistumisen perua maksun jälkeen?</h2>
@@ -30,6 +29,9 @@
     </div>
 
     <div class="col-md-6">
+      <h2>Osallistuminen aukeaa DOTin jäsenille 22.5. klo. 18.00 ja tällä sivulla myös muille 23.5. klo. 18.00 – ole valmiina!</h2>
+      <p>PS. Jos haluat varmistaa paikkasi ja päästä aiempaan ilmoittaumiskierrokseen, <a href="http://dot.ayy.fi/register/" target="_blank">liity DOTin jäseneksi</a>. Jäsenyys ei sido mihinkään. Näin pääset myös DOTin maililistalle, jossa ilmoittautumisen aukeamisesta tiedotetaan.</p>
+      <!--
       <form class="form-horizontal" method="post">
         {% macro form_input(input) -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">
@@ -58,6 +60,7 @@
           </div>
         </div>
       </form>
+      -->
     </div>
   </div>
 </div>
