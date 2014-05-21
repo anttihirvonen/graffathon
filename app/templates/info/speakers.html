@@ -2,19 +2,21 @@
 {% block info_content %}
 <h2 id="competitions-section">Puhujat ja ohjelma</h2>
 <p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin, että pidettäviin esityksiin ja workshoppeihin.</p>
+<p><b>Kuten huomaat, tämä sivu on vielä työn alla. Lisäämme tietoja ohjelmasta lähiaikoina. Voit kuitenkin olla varma, että ohjelma on laadukasta!</b></p>
 {% macro speaker(name, subject, description, image_url) -%}
 <div class="row">
+  {% if image_url %}
   <div class="col-md-2">
     <img src="{{ image_url }}" />
   </div>
-  <div class="col-md-10">
+  {% endif %}
+  <div class="col-md-{% if image %}10{% else %}12{% endif %}">
     <h4>{{ name }} – <i>{{ subject }}</i></h4>
     {{ description }}
   </div>
 </div>
 {%- endmacro %}
-{{ speaker('Antti Hirvonen', '?', lipsum(n=1, max=60), '') }} 
-{{ speaker('Pauli Kemppinen', '?', lipsum(n=1, max=60), '') }} 
-{{ speaker('Matti Meikäläinen', '?', lipsum(n=1, max=60), '') }} 
-{{ speaker('Teemu Teekkari', '?', lipsum(n=1, max=60), '') }} 
+{{ speaker('Antti Hirvonen', '?', 'Speksit tulossa!', '') }} 
+{{ speaker('Pauli Kemppinen', '?', 'Speksit tulossa!', '') }} 
+{{ speaker('Pekka Väänänen', '?', 'Speksit tulossa!', '') }} 
 {% endblock %}

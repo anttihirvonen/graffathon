@@ -129,6 +129,10 @@ h1, h2, h3 {
     top: 0;
 }
 
+#side-nav > li.active > a {
+    background-color: #342F69;
+}
+
 /* Index page */
 
 #polaroids {
