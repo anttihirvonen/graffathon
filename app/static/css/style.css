@@ -118,15 +118,15 @@ h1, h2, h3 {
     height: 90px;
     display: none;
 }
-
+    
 #side-nav-wrapper {
     margin-top: 20px;
 }
 
-#side-nav {
+#side-nav.affix {
+    position: static;
+    width: auto;
     top: 0;
-    margin-top: 20px;
-    width: 200px;
 }
 
 /* Index page */
@@ -270,5 +270,11 @@ h1, h2, h3 {
 @media (min-width: 768px) {
     .container {
         max-width: 1080px;
+    }
+
+    #side-nav {
+        top: 0;
+        margin-top: 20px;
+        width: 200px;
     }
 }

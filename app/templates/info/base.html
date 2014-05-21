@@ -15,10 +15,7 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-9" id="info-content">
-      {% block info_content %}{% endblock %}
-    </div>
-    <div class="col-md-3">
+    <div class="col-sm-3 col-sm-push-9">
       <div id="side-nav-wrapper" >
         <ul id="side-nav" class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top=230 data-offset-bottom=0>
           {{ menu_item('info', 'Yleistä') }}
@@ -29,6 +26,9 @@
           {{ menu_item('info_faq', 'UKK') }}
         </ul>
       </div>
+    </div>
+    <div class="col-sm-9 col-sm-pull-3" id="info-content">
+      {% block info_content %}{% endblock %}
     </div>
   </div>
 </div>
