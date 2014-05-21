@@ -251,6 +251,11 @@ h1, h2, h3 {
     background-image: url('../../static/img/nav-bg.jpg');
 }
 
+
+#info-content {
+    min-height: 600px;
+}
+
 /* media queries */
 @media (min-width: 768px) {
     .container {
