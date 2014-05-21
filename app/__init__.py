@@ -77,7 +77,7 @@ def in_english():
     return render_template('in_english.html')
 
 
-@app.route('/ilmoittautuminen', methods=['GET', 'POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
 	form = SignUpForm()
 
