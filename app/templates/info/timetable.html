@@ -60,7 +60,8 @@
 {% endblock %}
 {% block info_content %}
 <h2 id="timetable-section">Aikataulu</h2>
-<p>Huom! Aikataulu on alustava ja varmaa on ainoastaa alku- ja loppuaika :)</p>
+<p>Huom! Aikataulu on vielä tällä hetkellä alustava ja varmaa on ainoastaa alku- ja loppuaika :-)</p>
+<p>Puhujiin ja aiheisiin voit tutustua tarkemmin <a href="{{ url_for('info_speakers') }}">erillisellä sivulla</a>.</p>
 <div class="table-responsive table-striped" id="timetable-wrapper">
   <div class="alert alert-block alert-info" id="timetable-loading-message">Aikataulua ladataan, odota hetki...</div>
   <table id="timetable" class="table table-hover">
