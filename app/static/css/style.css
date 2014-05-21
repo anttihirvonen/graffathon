@@ -191,10 +191,10 @@ h1, h2, h3 {
     color: white;
 }
 
-#tuleoppimaan h1 {
+#index-header h1 {
+    font-size: 37px;
     font-family: 'Oswald', sans-serif;
     text-align: left;
-    font-size: 60px;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 3px 3px rgba(0, 0, 0, 0.3);
@@ -267,9 +267,17 @@ h1, h2, h3 {
 }
 
 /* media queries */
+@media(max-width:767px) {
+    /* layout mobile first, so no styles should be here */
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 1080px;
+    }
+
+    #index-header h1 {
+        font-size: 50px;
     }
 
     #side-nav {
@@ -277,4 +285,15 @@ h1, h2, h3 {
         margin-top: 20px;
         width: 200px;
     }
+}
+
+@media(min-width:992px) {
+    #index-header h1 {
+        font-size: 60px;
+    }
+
+}
+
+@media(min-width:1200px) {
+
 }
