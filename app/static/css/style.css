@@ -266,6 +266,12 @@ h1, h2, h3 {
     font-size: 13px;
 }
 
+.organizer .media-object {
+    width: 85px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+
 /* media queries */
 @media(max-width:767px) {
     /* layout mobile first, so no styles should be here */
