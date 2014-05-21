@@ -1,8 +1,19 @@
 {% extends 'info/base.html' %}
 {% block info_content %}
 <h2 id="competitions-section">Puhujat ja ohjelma</h2>
-<p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin, että pidettäviin esityksiin ja workshoppeihin.</p>
-<p><b>Kuten huomaat, tämä sivu on vielä työn alla. Lisäämme tietoja ohjelmasta lähiaikoina. Voit kuitenkin olla varma, että ohjelma on laadukasta!</b></p>
+<p><b>Kuten huomaat, tämä sivu on vielä työn alla. Lisäämme tietoja ohjelmasta lähiaikoina. Voit kuitenkin olla varma, että ohjelma on taatusti mielenkiintoista!</b></p>
+
+<p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin että pidettäviin esityksiin ja workshoppeihin. Myös <b>sinä</b> voit tulla pitämään workshopin tai presentaation! Sinun ei tarvitse olla guru pitääksesi esityksen – riittää, että pystyt opettamaan osaamasi asian toiselle henkilölle. Mikäli kiinnostuit, ota yhteys <a href="{{ url_for('team') }}">pääjärjestäjään</a> – näin voimme sopia tarkemmista detaileista ja saada esityksesi sovitettua yhteen muun tapahtumakonseptin kanssa.</p>
+
+<p><b>Ohjelmaa on tulossa ainakin seuraavista aiheista:</b></p>
+<ul>
+  <li>Johdatus demoskeneen ja demokulttuuriin</li>
+  <li>Grafiikkakoodauksen perusteet ja työkalut</li>
+  <li>Yksinkertaisia 2D-efektejä shadereilla</li>
+  <li>Blenderin lyhyt oppimäärä</li>
+  <li>3D-grafiikan tuottaminen Processingilla</li>
+  <li>... ja niin edelleen!</li>
+</ul>
 {% macro speaker(name, subject, description, image_url) -%}
 <div class="row">
   {% if image_url %}
