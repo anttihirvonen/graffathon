@@ -1,26 +1,28 @@
 {% extends 'base_with_nav_and_footer.html' %}
 {% block extra_head %}
 <style type="text/css">
-  #main-nav {
-    position: absolute;
-    background-color: transparent;
-    background-image: none;
-  }
+  @media screen and (min-width: 768px) {
+    #main-nav {
+      position: absolute;
+      background-color: transparent;
+      background-image: none;
+    }
 
-  #main-nav .navbar-brand {
-    color: white;
-  }
+    #main-nav .navbar-brand {
+      color: white;
+    }
 
-  #main-nav .nav a {
-    color: white;
-  }
+    #main-nav .nav a {
+      color: white;
+    }
 
-  #main-nav .nav a:hover {
-    border-bottom: 1px dotted white;
-  }
+    #main-nav .nav a:hover {
+      border-bottom: 1px dotted white;
+    }
 
-  #main-nav .nav a.active {
-    border-bottom: 1px dotted white;
+    #main-nav .nav a.active {
+      border-bottom: 1px dotted white;
+    }
   }
 
 </style>
