@@ -270,7 +270,7 @@ blockquote {
 }
 
 .organizer p {
-    margin-top: 5px;
+    margin: 0;
     font-size: 13px;
 }
 
