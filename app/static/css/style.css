@@ -29,7 +29,7 @@ footer {
     height: 200px;
     color: #ccc;
     text-align: center;
-    background-color; rgb(17, 12, 36);
+    background-color: rgb(17, 12, 36);
     background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=626262&density=70&opacity=15'), radial-gradient(circle at top, rgb(52, 28, 104) 0%, rgb(17, 12, 36) 100%); 
 }
 
