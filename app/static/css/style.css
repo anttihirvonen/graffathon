@@ -44,7 +44,7 @@ footer a {
 }
 
 .header {
-    background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=626262&density=70&opacity=15'), radial-gradient(circle at bottom, rgb(121, 52, 115) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
+    background-image: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=626262&density=70&opacity=15'), radial-gradient(circle at bottom, rgb(88, 27, 102) 0%, rgb(52, 28, 104) 50%, rgb(17, 12, 36) 100%); 
 }
 
 #short-header {
