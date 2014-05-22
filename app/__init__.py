@@ -82,7 +82,7 @@ def signup():
 	form = SignUpForm()
 
 	if request.method == 'POST' and form.validate_on_submit():
-		signup = SignUp("", "", "", "", False)
+		signup = SignUp("", "", "", "", False, False)
 		signup.name = form.name.data
 		signup.email = form.email.data
 		signup.school = form.school.data
@@ -91,8 +91,8 @@ def signup():
 		db.session.commit()
 
 		mail_body = "Osallistuminen vahvistetaan tuota pikaa."
-
 		send_email("Graffathon - Rekisteröinti", app.config['ADMINS'][0], [form.email.data], mail_body, "")
+		
 		return redirect('/')
 
 	return render_template('signup.html', form=form)
@@ -124,12 +124,20 @@ def show_participants():
 			participant_ids = request.form.getlist("selected_paid")
 			p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
+			emails = []
+
 			for p in p_list:
 				p.paid = True
+				emails.append(p.email)
 			db.session.commit()
 
-			signups = SignUp.query.order_by(SignUp.created.asc())
-			return render_template('participants.html', signups=signups)
+			#Send confirmation mail
+			mail_body = "Tapahtuman maksu on rekisteröity."
+			send_email("Graffathon - Vahvistus", app.config['ADMINS'][0], emails, mail_body, "")
+
+			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
+			confirmation = SignUp.query.filter_by(confirmed=False)
+			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
 		elif request.form['button'] == 'Poista':
 			participant_ids = request.form.getlist("selected_remove")
@@ -139,8 +147,41 @@ def show_participants():
 				db.session.delete(p)
 			db.session.commit()
 
-			signups = SignUp.query.order_by(SignUp.created.asc())
-			return render_template('participants.html', signups=signups)
+			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
+			confirmation = SignUp.query.filter_by(confirmed=False)
+			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
-	signups = SignUp.query.order_by(SignUp.created.asc())
-	return render_template('participants.html', signups=signups)
+		elif request.form['button'] == 'Vahvista':
+			participant_ids = request.form.getlist("selected_confirmation")
+			p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
+
+			emails = []
+
+			for p in p_list:
+				p.confirmed = True
+				emails.append(p.email)
+			db.session.commit()
+
+			#Send confirmation email
+			mail_body = "Tapahtuman maksutiedot:"
+			send_email("Graffathon - Maksu", app.config['ADMINS'][0], emails, mail_body, "")
+
+			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
+			confirmation = SignUp.query.filter_by(confirmed=False)
+			return render_template('participants.html', signups=signups, confirmation=confirmation)
+
+		elif request.form['button'] == 'Poista ilmoittautuminen':
+			participant_ids = request.form.getlist("confirmation_remove")
+			p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
+
+			for p in p_list:
+				db.session.delete(p)
+			db.session.commit()
+
+			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
+			confirmation = SignUp.query.filter_by(confirmed=False)
+			return render_template('participants.html', signups=signups, confirmation=confirmation)
+
+	signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
+	confirmation = SignUp.query.filter_by(confirmed=False)
+	return render_template('participants.html', signups=signups, confirmation=confirmation)

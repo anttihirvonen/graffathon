@@ -2,8 +2,48 @@
 {% block content %}
 <a href="/logout">Logout</a>
 <div class="container">
+
+	{% if confirmation.count() > 0%}
 	<table class="table table-striped">
 		<thead>
+			<h2>Vahvistettavat</h2>
+			<tr>
+				<th>#</th>
+				<th>Nimi</th>
+				<th>Sähköposti</th>
+				<th>Vahvista</th>
+				<th>Poista</th>
+			</tr>
+		</thead>
+		<tbody>
+			<form method="post">
+			{% for c in confirmation %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{c.name}}</td>
+					<td>{{c.email}}</td>
+					<td>
+						<input type="checkbox" name="selected_confirmation" value="{{c.id}}">
+					</td>
+					<td>
+						<input type="checkbox" name="confirmation_remove" value="{{c.id}}">
+					</td>
+				</tr>
+			{% endfor %}
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><input type="submit" name="button" value="Vahvista"></td>
+					<td><input type="submit" name="button" value="Poista ilmoittautuminen"></td>
+				</tr>
+		</tbody>
+	</table>
+	{% endif %}
+
+	<table class="table table-striped">
+		<thead>
+			<h2>Osallistujat</h2>
 			<tr>
 				<th>#</th>
 				<th>Nimi</th>
