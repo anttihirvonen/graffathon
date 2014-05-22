@@ -136,7 +136,7 @@ def show_participants():
 			send_email("Graffathon - Vahvistus", app.config['ADMINS'][0], emails, mail_body, "")
 
 			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-			confirmation = SignUp.query.filter_by(confirmed=False)
+			confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
 			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
 		elif request.form['button'] == 'Poista':
@@ -148,7 +148,7 @@ def show_participants():
 			db.session.commit()
 
 			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-			confirmation = SignUp.query.filter_by(confirmed=False)
+			confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
 			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
 		elif request.form['button'] == 'Vahvista':
@@ -167,7 +167,7 @@ def show_participants():
 			send_email("Graffathon - Maksu", app.config['ADMINS'][0], emails, mail_body, "")
 
 			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-			confirmation = SignUp.query.filter_by(confirmed=False)
+			confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
 			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
 		elif request.form['button'] == 'Poista ilmoittautuminen':
@@ -179,9 +179,9 @@ def show_participants():
 			db.session.commit()
 
 			signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-			confirmation = SignUp.query.filter_by(confirmed=False)
+			confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
 			return render_template('participants.html', signups=signups, confirmation=confirmation)
 
 	signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-	confirmation = SignUp.query.filter_by(confirmed=False)
+	confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
 	return render_template('participants.html', signups=signups, confirmation=confirmation)
