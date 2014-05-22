@@ -11,9 +11,11 @@
 				<th>Koulu ja koulutusohjelma</th>
 				<th>Kokemus demoscenestä</th>
 				<th>Maksanut</th>
+				<th>Poista</th>
 			</tr>
 		</thead>
 		<tbody>
+			<form method="post">
 			{% for s in signups %}
 				<tr>
 					<td>{{loop.index}}</td>
@@ -21,9 +23,25 @@
 					<td>{{s.email}}</td>
 					<td>{{s.school}}</td> 
 					<td>{{s.experience}}</td>
-					<td>{{s.paid}}</td>
+					<td>
+						{% if s.paid %}<i class="fa fa-check">
+						{% else %}<input type="checkbox" name="selected_paid" value="{{s.id}}">
+						{% endif %}
+					</td>
+					<td>
+						<input type="checkbox" name="selected_remove" value="{{s.id}}">
+					</td>
 				</tr>
 			{% endfor %}
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><input type="submit" name="button" value="Maksanut"></td>
+				<td><input type="submit" name="button" value="Poista"></td>
+				</form>
 		</tbody>
 	</table>
 </div>

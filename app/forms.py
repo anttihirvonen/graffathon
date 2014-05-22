@@ -15,7 +15,7 @@ class SignUpForm(Form):
 	name = TextField(u'Nimi // Name', [validators.Required()])
 	email = TextField(u'Sähköposti // Email', [validators.Email(), validate_email])
 	school = TextField(u'Koulu ja koulutusohjelma // School and degree programme')
-	experience = TextAreaField(u'Kokemus demoscenestä // Demoscene experience')
+	experience = TextAreaField(u'Kokemus tietokonegrafiikasta ja/tai demoskenestä // Experience of computer graphics and/or the demoscene')
 
 	def __init__(self, *a, **kw):
 		Form.__init__(self, *a, **kw)

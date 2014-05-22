@@ -90,7 +90,9 @@ def signup():
 		db.session.add(signup)
 		db.session.commit()
 
-		send_email("Testing", app.config['ADMINS'][0], [form.email.data], "Just testing", "")
+		mail_body = "Osallistuminen vahvistetaan tuota pikaa."
+
+		send_email("Graffathon - Rekisteröinti", app.config['ADMINS'][0], [form.email.data], mail_body, "")
 		return redirect('/')
 
 	return render_template('signup.html', form=form)
@@ -114,8 +116,31 @@ def logout():
 def load_user(userid):
 	return Admin.query.get(int(userid))
 
-@app.route('/osallistujat')
+@app.route('/osallistujat', methods=['GET', 'POST'])
 @login_required
 def show_participants():
+	if request.method == 'POST':
+		if request.form['button'] == 'Maksanut':
+			participant_ids = request.form.getlist("selected_paid")
+			p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
+
+			for p in p_list:
+				p.paid = True
+			db.session.commit()
+
+			signups = SignUp.query.order_by(SignUp.created.asc())
+			return render_template('participants.html', signups=signups)
+
+		elif request.form['button'] == 'Poista':
+			participant_ids = request.form.getlist("selected_remove")
+			p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
+			
+			for p in p_list:
+				db.session.delete(p)
+			db.session.commit()
+
+			signups = SignUp.query.order_by(SignUp.created.asc())
+			return render_template('participants.html', signups=signups)
+
 	signups = SignUp.query.order_by(SignUp.created.asc())
 	return render_template('participants.html', signups=signups)

@@ -20,6 +20,13 @@ def initialize_database():
 
 	print "Database initialized"
 
+@manager.command
+def add_test_user():
+	user = models.SignUp("Test User", "test.user@gmail.com", "Aalto-yliopisto TiK", "Vahan.", False)
+	db.session.add(user)
+	db.session.commit()
+
+	print "User added"
 
 if __name__ == "__main__":
     manager.run()
