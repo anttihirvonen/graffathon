@@ -3,6 +3,9 @@ import os
 
 DEBUG = False
 
+# Emails delimited with comma, no spaces!
+ADMINISTRATORS = os.environ['ADMINISTRATORS'].split(',')
+
 SECRET_KEY = os.environ['SECRET_KEY']
 
 COLLECT_STATIC_ROOT = os.environ['COLLECT_STATIC_ROOT']

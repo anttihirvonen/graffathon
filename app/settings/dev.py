@@ -1,5 +1,7 @@
 DEBUG = True
 
+ADMINISTRATORS = ()
+
 SECRET_KEY = 'development secret'
 
 # For testing collect

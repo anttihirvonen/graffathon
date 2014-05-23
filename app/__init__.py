@@ -4,6 +4,7 @@ from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from flask.ext.mail import Message, Mail
+from flask_errormail import mail_on_500
 from datetime import datetime
 
 app = Flask(__name__)
@@ -11,6 +12,8 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 
 app.config.from_object('app.settings.common')
 app.config.from_envvar('GRAFFATHON_SETTINGS')
+
+mail_on_500(app, app.config['ADMINISTRATORS'])
 
 db = SQLAlchemy(app)
 
