@@ -107,7 +107,11 @@ def signup():
 
         return redirect(url_for('signup_thank_you'))
 
-    return render_template('signup.html', form=form)
+    # Open public signup 24.5. at 18:00
+    show_form = datetime.utcnow() >= datetime(2014, 5, 24, 15, 0, 0) or \
+        request.path == '/dotsignup'
+
+    return render_template('signup.html', form=form, show_form=show_form)
 
 
 @app.route('/login', methods=['GET', 'POST'])

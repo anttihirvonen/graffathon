@@ -34,12 +34,11 @@
         <li>AYY:n opiskelijoille 24.5. klo 18.00 (tällä sivulla)</li> 
         <li>Muille 27.5. klo. 18 (tällä sivulla)</li>
       </ul>
-      <p>PS. Jos haluat varmistaa paikkasi ja päästä aiempaan ilmoittaumiskierrokseen, <a href="http://dot.ayy.fi/register/" target="_blank">liity DOTin jäseneksi</a>. Jäsenyys ei sido mihinkään eikä velvoita AYY:n jäsenyyttä tai opiskelijastatusta. Näin pääset myös DOTin maililistalle, jossa ilmoittautumisen aukeamisesta tiedotetaan (sekä tietysti muista mahtavista tapahtumistamme).</p>
       {% endif %}
       <p><b>Huomioithan, että tapahtuma on suunnattu kaikin puolin aloittelijoille</b> (esim. muutamia kursseja aiheesta käyneille) tai täysin kokemattomille. Jos siis olet ennestäänkin koodannut enemmälti tietokonegrafiikkaa, ilmoittaudu mielellään vasta kesäkuun puolella, jos paikkoja on vielä auki! (Vaihtoehtoisesti voi tulla tapahtumaan pitämään presiksen tai workshopin.)</p>
 
 
-      {% if request.path == "/dotsignup" %}
+      {% if show_form %}
       <form class="form-horizontal" method="post" id="signup-form">
         {% macro form_input(input, help_text='') -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">
