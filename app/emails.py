@@ -16,3 +16,10 @@ def send_email(subject, recipients, text_body, html_body):
     msg.body = text_body
     msg.html = html_body
     send_async_email(msg)
+
+
+def send_all(messages):
+    """Sends given messages over single connection"""
+    with mail.connect() as conn:
+        for msg in messages:
+            conn.send(msg)
