@@ -60,6 +60,10 @@ footer a {
     color: white;
 }
 
+#content {
+    min-height: 300px;
+}
+
 /* Base fonts etc. */
 
 h1, h2, h3 {
@@ -253,6 +257,15 @@ blockquote {
     font-size 12px;
     margin-top: 5px;
     max-width: 400px;
+}
+
+#signup-form {
+    margin-top: 40px;
+}
+
+#signup-form #experience {
+    height: 160px;
+    width: 100%;
 }
 
 #general-header {

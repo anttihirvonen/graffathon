@@ -15,9 +15,9 @@
       <p>Hyvän tapahtumasisällön lisäksi osallistumismaksulla</p>
       <ul>
         <li>rahoitetaan osittain kilpailujen palkinnot</li>
-        <li>kustannetaan ilmaiset kahvit ja muut juomat kahvikoneesta koko tapahtuman ajaksi</li>
         <li>tuetaan DOTin grafiikkakoodauskirjaston uudistamisprojektia.</li>
       </ul>
+      <p>Tapahtumassa on myös tarjolla ilmaiset kahvit koko tapahtuman ajan!</p>
       <h2>Voiko osallistumisen perua maksun jälkeen?</h2>
       <p>Maksettua osallistumismaksua ei valitettavasti palauteta, sillä maksaminen tarkoittaa sitovaa ilmoittautumista. Voit kuitenkin yrittää houkutella jonkun toisen tilallesi!</p>
     </div>
@@ -40,7 +40,7 @@
 
 
       {% if request.path == "/dotsignup" %}
-      <form class="form-horizontal" method="post">
+      <form class="form-horizontal" method="post" id="signup-form">
         {% macro form_input(input, help_text='') -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">
             {{ input.label(class='col-sm-3 control-label') }}
@@ -65,7 +65,7 @@
 
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Ilmoittaudu! // Sign up!</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Ilmoittaudu!</button>
           </div>
         </div>
       </form>
