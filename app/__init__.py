@@ -13,7 +13,8 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 app.config.from_object('app.settings.common')
 app.config.from_envvar('GRAFFATHON_SETTINGS')
 
-mail_on_500(app, app.config['ADMINISTRATORS'])
+mail_on_500(app, app.config['ADMINISTRATORS'],
+            sender=app.config['MAIL_DEFAULT_SENDER'])
 
 db = SQLAlchemy(app)
 
