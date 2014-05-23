@@ -77,6 +77,11 @@ def in_english():
     return render_template('in_english.html')
 
 
+@app.route('/thank-you')
+def signup_thank_you():
+    return render_template('thank_you.html')
+
+
 @app.route('/dotsignup', endpoint="dot_signup", methods=['GET', 'POST'])
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -94,7 +99,7 @@ def signup():
         mail_body = "Osallistuminen vahvistetaan tuota pikaa."
         send_email("Graffathon - Rekisteröinti", [form.email.data], mail_body, "")
 
-        return redirect('/')
+        return redirect(url_for('signup_thank_you'))
 
     return render_template('signup.html', form=form)
 

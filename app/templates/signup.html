@@ -10,7 +10,7 @@
     <div class="col-md-5">
       <h2>Ilmoittaudu tapahtumaan</h2>
       <p>Oheisella lomakkeella voit ilmoittautua osallistujaksi tapahtumaan.</p>
-      <p>Täytettyäsi lomakkeen tarkistamme osallistumisesi tiedot. Tämän jälkeen saat sähköpostiin tiedot osallistumismaksun (5e) suorittamista varten. Sinulla on kolme päivää aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
+      <p>Täytettyäsi lomakkeen lähetämme sinulle vahvistuksen sähköpostiisi. Tämän jälkeen tarkistamme käsin osallistumisesi tiedot (alkuvaiheessa ilmoittautumiselle on tiettyjä rajoituksia). Tietojen tarkistamisen jälkeen saat sähköpostiisi ohjeet osallistumismaksun (5e) suorittamista varten. Sinulla on kolme päivää aikaa suorittaa maksu – tämän jälkeen osallistumisesi poistetaan tietokannasta ja paikka vapautuu jollekin toiselle halukkaalle.</p>
       <h2>Mitä osallistumismaksulla saa?</h2>
       <p>Hyvän tapahtumasisällön lisäksi osallistumismaksulla</p>
       <ul>
@@ -33,19 +33,21 @@
       <ul>
         <li>DOTin jäsenille viimeistään 23.5. klo. 18.00 (erillisellä sivulla)</li>
         <li>AYY:n opiskelijoille 24.5. klo 18.00 (tällä sivulla)</li> 
-        <li>Muille 25.5. klo. 18 (tällä sivulla)</li>
+        <li>Muille 27.5. klo. 18 (tällä sivulla)</li>
       </ul>
       <p>PS. Jos haluat varmistaa paikkasi ja päästä aiempaan ilmoittaumiskierrokseen, <a href="http://dot.ayy.fi/register/" target="_blank">liity DOTin jäseneksi</a>. Jäsenyys ei sido mihinkään eikä velvoita AYY:n jäsenyyttä tai opiskelijastatusta. Näin pääset myös DOTin maililistalle, jossa ilmoittautumisen aukeamisesta tiedotetaan (sekä tietysti muista mahtavista tapahtumistamme).</p>
       {% endif %}
+      <p><b>Huomioithan, että tapahtuma on suunnattu kaikin puolin aloittelijoille</b> (esim. muutamia kursseja aiheesta käyneille) tai täysin kokemattomille. Jos siis olet ennestäänkin koodannut enemmälti tietokonegrafiikkaa, ilmoittaudu mielellään vasta kesäkuun puolella, jos paikkoja on vielä auki! (Vaihtoehtoisesti voi tulla tapahtumaan pitämään presiksen tai workshopin.)</p>
 
 
       {% if request.path == "/dotsignup" %}
       <form class="form-horizontal" method="post">
-        {% macro form_input(input) -%}
+        {% macro form_input(input, help_text='') -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">
             {{ input.label(class='col-sm-3 control-label') }}
             <div class="col-sm-9">
               {{ input(class='form-control') }}
+              <small>{{ help_text }}</small>
               {% if input.errors %}
                 {% for error in input.errors %}
                 <p class="text-danger">{{ error }}</p>
@@ -59,8 +61,8 @@
 
         {{ form_input(form.name) }}
         {{ form_input(form.email) }}
-        {{ form_input(form.school) }}
-        {{ form_input(form.experience) }}
+        {{ form_input(form.school, 'Tällä hetkellä käymäsi koulu ja koulutusohjelma. Jos et ole opiskelija, voit jättää tyhjäksi.') }}
+        {{ form_input(form.experience, 'Kartoitamme osallistujien tieto- ja taitotasoa. Muokkaamme ohjelmaa vastausten perusteella.') }}
 
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">

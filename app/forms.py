@@ -14,10 +14,10 @@ def validate_email(form, field):
 
 
 class SignUpForm(Form):
-    name = TextField(u'Nimi // Name', [validators.Required()])
-    email = TextField(u'Sähköposti // Email', [validators.Email(), validate_email])
-    school = TextField(u'Koulu ja koulutusohjelma // School and degree programme')
-    experience = TextAreaField(u'Kokemus tietokonegrafiikasta ja/tai demoskenestä // Experience of computer graphics and/or the demoscene')
+    name = TextField(u'Nimi', [validators.Required()])
+    email = TextField(u'Sähköposti', [validators.Email(), validate_email])
+    school = TextField(u'Koulu ja koulutusohjelma')
+    experience = TextAreaField(u'Kokemus tietokonegrafiikasta ja/tai demoskenestä')
 
     def __init__(self, *a, **kw):
         Form.__init__(self, *a, **kw)
