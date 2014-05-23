@@ -200,6 +200,6 @@ def show_participants():
 
             return redirect(url_for('show_participants'))
 
-    signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-    confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
+    signups = SignUp.query.filter_by(confirmed=True, visible=True).order_by(SignUp.created.asc())
+    confirmation = SignUp.query.filter_by(confirmed=False, visible=True).order_by(SignUp.created.asc())
     return render_template('participants.html', signups=signups, confirmation=confirmation)
