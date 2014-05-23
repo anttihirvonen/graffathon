@@ -4,6 +4,7 @@ from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from flask.ext.mail import Message, Mail
+
 from flask_errormail import mail_on_500
 from datetime import datetime
 
@@ -27,7 +28,7 @@ mail.init_app(app)
 
 from models import SignUp, Admin
 from forms import SignUpForm, LoginForm
-from emails import send_email
+from emails import send_email, send_all
 
 
 # TODO: handling all these static page routes
@@ -166,17 +167,22 @@ def show_participants():
             participant_ids = request.form.getlist("selected_confirmation")
             p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
-            emails = []
+            messages = []
+            mail_subject = "Graffathon - Maksutiedot"
 
+            # Create one mail message for every participant
+            # and send them over single connection
             for p in p_list:
                 p.confirmed = True
                 p.confirmed_at = datetime.utcnow()
-                emails.append(p.email)
-            db.session.commit()
+                mail_body = render_template("mails/payment_info.txt",
+                                            participant=p)
+                messages.append(Message(recipients=[p.email],
+                                        body=mail_body,
+                                        subject=mail_subject))
 
-            #Send confirmation email
-            mail_body = "Tapahtuman maksutiedot:"
-            send_email("Graffathon - Maksu", emails, mail_body, "")
+            send_all(messages)
+            db.session.commit()
 
             return redirect(url_for('show_participants'))
 
