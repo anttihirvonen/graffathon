@@ -77,6 +77,7 @@ def in_english():
     return render_template('in_english.html')
 
 
+@app.route('/dotsignup', endpoint="dot_signup", methods=['GET', 'POST'])
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
