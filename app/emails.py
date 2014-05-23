@@ -10,8 +10,9 @@ def send_async_email(msg):
         mail.send(msg)
 
 
-def send_email(subject, sender, recipients, text_body, html_body):
-    msg = Message(subject, sender=sender, recipients=recipients)
+def send_email(subject, recipients, text_body, html_body):
+    """Sends mail from DEFAULT_MAIL_SENDER to given recipients"""
+    msg = Message(subject, recipients=recipients)
     msg.body = text_body
     msg.html = html_body
     send_async_email(msg)

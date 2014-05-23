@@ -91,7 +91,7 @@ def signup():
         db.session.commit()
 
         mail_body = "Osallistuminen vahvistetaan tuota pikaa."
-        send_email("Graffathon - Rekisteröinti", app.config['ADMINS'][0], [form.email.data], mail_body, "")
+        send_email("Graffathon - Rekisteröinti", [form.email.data], mail_body, "")
 
         return redirect('/')
 
@@ -137,7 +137,7 @@ def show_participants():
 
             #Send confirmation mail
             mail_body = "Tapahtuman maksu on rekisteröity."
-            send_email("Graffathon - Vahvistus", app.config['ADMINS'][0], emails, mail_body, "")
+            send_email("Graffathon - Vahvistus", emails, mail_body, "")
 
             return redirect(url_for('show_participants'))
 
@@ -164,7 +164,7 @@ def show_participants():
 
             #Send confirmation email
             mail_body = "Tapahtuman maksutiedot:"
-            send_email("Graffathon - Maksu", app.config['ADMINS'][0], emails, mail_body, "")
+            send_email("Graffathon - Maksu", emails, mail_body, "")
 
             return redirect(url_for('show_participants'))
 
