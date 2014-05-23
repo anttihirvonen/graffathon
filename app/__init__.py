@@ -97,8 +97,8 @@ def signup():
         db.session.add(signup)
         db.session.commit()
 
-        mail_body = "Osallistuminen vahvistetaan tuota pikaa."
-        send_email("Graffathon - Rekisteröinti", [form.email.data], mail_body, "")
+        mail_body = render_template('mails/signup_thankyou.txt')
+        send_email("Graffathon - Ilmoittautuminen rekisteröity", [form.email.data], mail_body, "")
 
         return redirect(url_for('signup_thank_you'))
 
