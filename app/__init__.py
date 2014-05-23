@@ -139,9 +139,7 @@ def show_participants():
             mail_body = "Tapahtuman maksu on rekisteröity."
             send_email("Graffathon - Vahvistus", app.config['ADMINS'][0], emails, mail_body, "")
 
-            signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-            confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
-            return render_template('participants.html', signups=signups, confirmation=confirmation)
+            return redirect(url_for('show_participants'))
 
         elif request.form['button'] == 'Poista':
             participant_ids = request.form.getlist("selected_remove")
@@ -151,9 +149,7 @@ def show_participants():
                 db.session.delete(p)
             db.session.commit()
 
-            signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-            confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
-            return render_template('participants.html', signups=signups, confirmation=confirmation)
+            return redirect(url_for('show_participants'))
 
         elif request.form['button'] == 'Vahvista':
             participant_ids = request.form.getlist("selected_confirmation")
@@ -170,9 +166,7 @@ def show_participants():
             mail_body = "Tapahtuman maksutiedot:"
             send_email("Graffathon - Maksu", app.config['ADMINS'][0], emails, mail_body, "")
 
-            signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-            confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
-            return render_template('participants.html', signups=signups, confirmation=confirmation)
+            return redirect(url_for('show_participants'))
 
         elif request.form['button'] == 'Poista ilmoittautuminen':
             participant_ids = request.form.getlist("confirmation_remove")
@@ -182,9 +176,7 @@ def show_participants():
                 db.session.delete(p)
             db.session.commit()
 
-            signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
-            confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
-            return render_template('participants.html', signups=signups, confirmation=confirmation)
+            return redirect(url_for('show_participants'))
 
     signups = SignUp.query.filter_by(confirmed=True).order_by(SignUp.created.asc())
     confirmation = SignUp.query.filter_by(confirmed=False).order_by(SignUp.created.asc())
