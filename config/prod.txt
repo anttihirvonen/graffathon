@@ -1,3 +1,4 @@
 -r common.txt
 gunicorn==18.0
 mysql-python==1.2.5
+envdir==0.6.1
