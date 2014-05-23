@@ -13,16 +13,18 @@ class SignUp(db.Model):
     experience = db.Column(db.Text)
     paid = db.Column(db.Boolean)
     confirmed = db.Column(db.Boolean)
+    visible = db.Column(db.Boolean)
     created = db.Column(db.DateTime)
     confirmed_at = db.Column(db.DateTime, nullable=True)
 
-    def __init__(self, name, email, school, experience, paid, confirmed, created=None):
+    def __init__(self, name, email, school, experience, paid, confirmed, visible, created=None):
         self.name = name
         self.email = email
         self.school = school
         self.experience = experience
         self.paid = paid
         self.confirmed = confirmed
+        self.visible = visible
         if created is None:
             created = datetime.utcnow()
         self.created = created

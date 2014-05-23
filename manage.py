@@ -24,7 +24,7 @@ def initialize_database():
 
 @manager.command
 def add_test_user():
-    user = models.SignUp("Test User", "test.user@gmail.com", "Aalto-yliopisto TiK", "Vahan.", False, False)
+    user = models.SignUp("Test User", "test.user@gmail.com", "Aalto-yliopisto TiK", "Vahan.", False, False, True)
     db.session.add(user)
     db.session.commit()
 

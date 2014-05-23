@@ -89,7 +89,7 @@ def signup():
     form = SignUpForm()
 
     if request.method == 'POST' and form.validate_on_submit():
-        signup = SignUp("", "", "", "", False, False)
+        signup = SignUp("", "", "", "", False, False, True)
         signup.name = form.name.data
         signup.email = form.email.data
         signup.school = form.school.data
@@ -153,7 +153,7 @@ def show_participants():
             p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
             for p in p_list:
-                db.session.delete(p)
+                p.visible = False
             db.session.commit()
 
             return redirect(url_for('show_participants'))
@@ -181,7 +181,7 @@ def show_participants():
             p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
             for p in p_list:
-                db.session.delete(p)
+                p.visible = False
             db.session.commit()
 
             return redirect(url_for('show_participants'))
