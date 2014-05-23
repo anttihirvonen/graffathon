@@ -4,6 +4,7 @@ from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from flask.ext.mail import Message, Mail
+from datetime import datetime
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -165,6 +166,7 @@ def show_participants():
 
             for p in p_list:
                 p.confirmed = True
+                p.confirmed_at = datetime.utcnow()
                 emails.append(p.email)
             db.session.commit()
 

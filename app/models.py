@@ -14,6 +14,7 @@ class SignUp(db.Model):
     paid = db.Column(db.Boolean)
     confirmed = db.Column(db.Boolean)
     created = db.Column(db.DateTime)
+    confirmed_at = db.Column(db.DateTime, nullable=True)
 
     def __init__(self, name, email, school, experience, paid, confirmed, created=None):
         self.name = name
@@ -22,9 +23,10 @@ class SignUp(db.Model):
         self.experience = experience
         self.paid = paid
         self.confirmed = confirmed
-        if created == None:
+        if created is None:
             created = datetime.utcnow()
         self.created = created
+        self.confirmed_at = None
 
     def __repr__(self):
         return '<SignUp %r>' % self.name

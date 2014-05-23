@@ -50,6 +50,7 @@
         <th>Sähköposti</th>
         <th>Koulu ja koulutusohjelma</th>
         <th>Kokemus demoscenestä</th>
+        <th>Vahvistettu</th>
         <th>Maksanut</th>
         <th>Poista</th>
       </tr>
@@ -63,6 +64,7 @@
           <td>{{s.email}}</td>
           <td>{{s.school}}</td> 
           <td>{{s.experience}}</td>
+          <td>{{s.confirmed_at}}</td>
           <td>
             {% if s.paid %}<i class="fa fa-check">
             {% else %}<input type="checkbox" name="selected_paid" value="{{s.id}}">
@@ -74,6 +76,7 @@
         </tr>
       {% endfor %}
       <tr>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
