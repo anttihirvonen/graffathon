@@ -9,24 +9,27 @@ collect = Collect()
 collect.init_app(app)
 collect.init_script(manager)
 
+
 @manager.command
 def initialize_database():
-	"Drop current database and initialize a new one"
-	db.drop_all()
-	db.create_all()
-	admin = models.Admin(app.config['USERNAME'], app.config['PASSWORD'])
-	db.session.add(admin)
-	db.session.commit()
+    "Drop current database and initialize a new one"
+    db.drop_all()
+    db.create_all()
+    admin = models.Admin(app.config['USERNAME'], app.config['PASSWORD'])
+    db.session.add(admin)
+    db.session.commit()
 
-	print "Database initialized"
+    print "Database initialized"
+
 
 @manager.command
 def add_test_user():
-	user = models.SignUp("Test User", "test.user@gmail.com", "Aalto-yliopisto TiK", "Vahan.", False, False)
-	db.session.add(user)
-	db.session.commit()
+    user = models.SignUp("Test User", "test.user@gmail.com", "Aalto-yliopisto TiK", "Vahan.", False, False)
+    db.session.add(user)
+    db.session.commit()
 
-	print "User added"
+    print "User added"
+
 
 if __name__ == "__main__":
     manager.run()

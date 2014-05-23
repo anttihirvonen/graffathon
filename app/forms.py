@@ -5,39 +5,41 @@ from wtforms.validators import Required, StopValidation, ValidationError
 from models import Admin, SignUp
 from flask import flash
 
+
 def validate_email(form, field):
-	existing_email = SignUp.query.filter_by(email=field.data).first()
-	
-	if existing_email:
-		raise ValidationError(u'Email already exists')
+    existing_email = SignUp.query.filter_by(email=field.data).first()
+
+    if existing_email:
+        raise ValidationError(u'Email already exists')
+
 
 class SignUpForm(Form):
-	name = TextField(u'Nimi // Name', [validators.Required()])
-	email = TextField(u'Sähköposti // Email', [validators.Email(), validate_email])
-	school = TextField(u'Koulu ja koulutusohjelma // School and degree programme')
-	experience = TextAreaField(u'Kokemus tietokonegrafiikasta ja/tai demoskenestä // Experience of computer graphics and/or the demoscene')
+    name = TextField(u'Nimi // Name', [validators.Required()])
+    email = TextField(u'Sähköposti // Email', [validators.Email(), validate_email])
+    school = TextField(u'Koulu ja koulutusohjelma // School and degree programme')
+    experience = TextAreaField(u'Kokemus tietokonegrafiikasta ja/tai demoskenestä // Experience of computer graphics and/or the demoscene')
 
-	def __init__(self, *a, **kw):
-		Form.__init__(self, *a, **kw)
+    def __init__(self, *a, **kw):
+        Form.__init__(self, *a, **kw)
 
 
 class LoginForm(Form):
-	username = TextField(u'Username', [validators.Required()])
-	password = PasswordField(u'Password', [validators.Required()])
+    username = TextField(u'Username', [validators.Required()])
+    password = PasswordField(u'Password', [validators.Required()])
 
-	def __init__(self, *a, **kw):
-		Form.__init__(self, *a, **kw)
-		self.admin = None
+    def __init__(self, *a, **kw):
+        Form.__init__(self, *a, **kw)
+        self.admin = None
 
-	def validate_on_submit(self):
-		admin = Admin.query.filter_by(username=self.username.data).first()
-		if admin is None:
-			flash(u'Invalid username')
-			return False
+    def validate_on_submit(self):
+        admin = Admin.query.filter_by(username=self.username.data).first()
+        if admin is None:
+            flash(u'Invalid username')
+            return False
 
-		if not admin.check_password(self.password.data):
-			flash(u'Invalid password')
-			return False
+        if not admin.check_password(self.password.data):
+            flash(u'Invalid password')
+            return False
 
-		self.admin = admin
-		return True
+        self.admin = admin
+        return True
