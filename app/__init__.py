@@ -205,4 +205,8 @@ def show_participants():
 
     signups = SignUp.query.filter_by(confirmed=True, visible=True).order_by(SignUp.created.asc())
     confirmation = SignUp.query.filter_by(confirmed=False, visible=True).order_by(SignUp.created.asc())
-    return render_template('participants.html', signups=signups, confirmation=confirmation)
+    hidden_participants = SignUp.query.filter_by(visible=False)
+    return render_template('participants.html',
+                           signups=signups,
+                           confirmation=confirmation,
+                           hidden_participants=hidden_participants)
