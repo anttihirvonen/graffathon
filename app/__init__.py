@@ -144,16 +144,19 @@ def show_participants():
             participant_ids = request.form.getlist("selected_paid")
             p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
-            emails = []
+            messages = []
+            mail_subject = "Graffathon – Maksu vahvistettu"
 
             for p in p_list:
                 p.paid = True
-                emails.append(p.email)
-            db.session.commit()
+                mail_body = render_template("mails/payment_received.txt",
+                                            participant=p)
+                messages.append(Message(recipients=[p.email],
+                                        body=mail_body,
+                                        subject=mail_subject))
 
-            #Send confirmation mail
-            mail_body = "Tapahtuman maksu on rekisteröity."
-            send_email("Graffathon - Vahvistus", emails, mail_body, "")
+            send_all(messages)
+            db.session.commit()
 
             return redirect(url_for('show_participants'))
 
