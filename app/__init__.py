@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
@@ -202,6 +202,29 @@ def show_participants():
             db.session.commit()
 
             return redirect(url_for('show_participants'))
+
+        elif request.form['button'] == 'Muistuta':
+            participant_ids = request.form.getlist("selected_reminder")
+            p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
+
+            messages = []
+            mail_subject = "Graffathon - Muistutus"
+
+            # Create one mail message for every participant
+            # and sen them over single connection
+
+            for p in p_list:
+                mail_body = render_template("mails/payment_late.txt",
+                                            participant=p)
+                messages.append(Message(recipients=[p.email],
+                                        body=mail_body,
+                                        subject=mail_subject))
+
+            send_all(messages)
+
+            # Flash a message for the admin.
+            flash(u'Muistutus lähetetty')
+
 
     signups = SignUp.query.filter_by(confirmed=True, visible=True).order_by(SignUp.created.asc())
     confirmation = SignUp.query.filter_by(confirmed=False, visible=True).order_by(SignUp.created.asc())
