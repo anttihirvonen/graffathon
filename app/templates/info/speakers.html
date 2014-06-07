@@ -1,36 +1,28 @@
 {% extends 'info/base.html' %}
 {% block info_content %}
 <h2 id="competitions-section">Puhujat ja ohjelma</h2>
-<p><b>Kuten huomaat, tämä sivu on vielä työn alla. Lisäämme tietoja ohjelmasta lähiaikoina. Voit kuitenkin olla varma, että ohjelma on taatusti mielenkiintoista!</b></p>
-
-<p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin että pidettäviin esityksiin ja workshoppeihin. Myös <b>sinä</b> voit tulla pitämään workshopin tai presentaation! Sinun ei tarvitse olla guru pitääksesi esityksen – riittää, että pystyt opettamaan osaamasi asian toiselle henkilölle. Mikäli kiinnostuit, ota yhteys <a href="{{ url_for('team') }}">pääjärjestäjään</a> – näin voimme sopia tarkemmista detaileista ja saada esityksesi sovitettua yhteen muun tapahtumakonseptin kanssa.</p>
-
-<p><b>Ohjelmaa on tulossa ainakin seuraavista aiheista:</b></p>
-<ul>
-  <li>Johdatus demoskeneen ja demokulttuuriin</li>
-  <li>Grafiikkakoodauksen perusteet</li>
-  <li>Visuaalien synkkaaminen musiikin kanssa</li>
-  <li>Yksinkertaisia 2D-efektejä shadereilla</li>
-  <li>Blenderin lyhyt oppimäärä</li>
-  <li>3D-grafiikan tuottaminen Processingilla</li>
-  <li>... ja niin edelleen!</li>
-</ul>
-{% macro speaker(name, subject, description, image_url) -%}
+<p>Tällä sivulla voit tutustua tarkemmin sekä puhujiin että pidettäviin esityksiin ja workshoppeihin. Myös <b>sinä</b> voit tulla pitämään workshopin tai presentaation! Sinun ei tarvitse olla guru pitääksesi esityksen – riittää, että pystyt opettamaan jonkun osaamasi asian toiselle henkilölle. Mikäli kiinnostuit, ota yhteys <a href="{{ url_for('team') }}">pääjärjestäjään</a>.</p>
+<p><b>Alla esittelyt puhujista sekä aiheista!</b></p>
+{% macro speaker(name, speaker_info, description, image_url='img/team/anonymous.png') -%}
 <div class="row">
+  {% autoescape false %}
   {% if image_url %}
   <div class="col-md-2">
-    <img src="{{ image_url }}" />
+    <img style="width: 100%; border-radius: 100px;" src="{{ url_for('static', filename=image_url) }}" />
   </div>
   {% endif %}
-  <div class="col-md-{% if image %}10{% else %}12{% endif %}">
-    <h4>{{ name }} – <i>{{ subject }}</i></h4>
+  <div class="col-md-{% if image_url %}10{% else %}10{% endif %}">
+    <h4>{{ name }}</h4>
+    <p>{{ speaker_info }}</p>
     {{ description }}
   </div>
+  {% endautoescape %}
 </div>
 {%- endmacro %}
-{{ speaker('Antti Hirvonen', '?', 'Speksit tulossa!', '') }} 
-{{ speaker('Pauli Kemppinen', '?', 'Speksit tulossa!', '') }} 
-{{ speaker('Pekka Väänänen', '?', 'Speksit tulossa!', '') }} 
-{{ speaker('Martti Nurmikari', '?', 'Speksit tulossa!', '') }} 
-{{ speaker('Otso Jylhä', '?', 'Speksit tulossa!', '') }} 
+{{ speaker('Antti Hirvonen (firebug)', 'Hei! Olen Antti, Graffathonin pääjärjestäjä sekä innokas demoskeneilijä. Julkaisemani tuotokset löydät <a href="http://www.pouet.net/user.php?who=40172" target="_blank" >Pouetista</a>.', '<h5>Synkkaamisen työkalut</h5><p>Esityksessä esitellään eräs musiikin ja visuaalien synkkaamisen aputyökalu (GNU Rocket) sekä kirjasto, jonka avulla työkalun voi helposti ottaa käyttöön myös Processingissa.</p><h5>Yksinkertaisia 2D-efektejä shadereillä</h5><p>Shaderit ovat nykyaikaisen tietokonegrafiikan yksi tärkeimmistä kulmakivistä. Esityksessä tutustutaan pintapuolisesti shadereihin yleisellä tasolla sekä opetellaan tekemään yksinkertainen 2D-efekti.</p>', 'img/speakers/antti.png') }} 
+{{ speaker('Otso Jylhä (OJ)', 'Moro! Olen Otso Jylhä, tietotekniikan opiskelija Espoosta. Pienestä pitäen olen harrastanut tietokoneella piirtämistä ja mallintamista. Joitain tekeleitä löytyy osoitteesta <a target="_blank" href="http://otsojylha.carbonmade.com/">http://otsojylha.carbonmade.com/</a>.', '<h5>Aloittelijan Blender-workshop</h5><p>Tutustutaan Blenderiin. Ota mukaan tietokone ja hiiri sekä asenna etukäteen <a href="http://www.blender.org/download/">Blender 2.70</a>. Numpad suositeltava muttei pakollinen – erillinen näppäimistö & hiiri kannattaa siis ottaa mukaan jos mahdollista.', 'img/speakers/otso.jpg') }} 
+{{ speaker('Pekka Väänänen (cce)', 'Tykkään ohjelmoida grafiikkaa ja tehdä musiikkia tietokoneella. Vaikutan myös Peisik-skenegroupissa. <a href="http://peisik.untergrund.net/">http://peisik.untergrund.net/</a> <a href="https://twitter.com/seecce">https://twitter.com/seecce</a>', '<h5>Kilpikonnien ja tietokonegrafiikan salattu yhteys</h5><p>Esityksessä esitellään nopeasti kilpikonnagrafiikan historiaa (Logo, QBasic), toteutetaan yksinkertainen fraktaali Processingilla animaatioiden kera sekä yleistetään kilpikonnagrafiikka 3D-avaruuteen (fixed function matriisipino).</p>') }} 
+{{ speaker('Konsta Hölttä', 'Olen pitkäaikainen DOTin hallitusaktiivi ja koodaan kaikkea grafiikasta bitinnypläykseen.', '<h5>Äänen spektrin analysointi graffaefektinä</h5> <p>FFT:n (Fast Fourier Transform) perusteet ja sen käyttö Processingilla tyylikkäiden synkkaysefektien aikaansaamiseksi.</p>', 'img/team/sooda.jpg') }} 
+{{ speaker('Pauli Kemppinen (msqrt)', 'Kuvaus puuttuu.', '<h5>Demokoodauksen perusteita</h5>') }} 
+{{ speaker('Martti Nurmikari', 'Kuvaus puuttuu.', '<h5>Johdatus demoskenekulttuuriin</h5>') }} 
 {% endblock %}
