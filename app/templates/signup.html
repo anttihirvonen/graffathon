@@ -24,18 +24,21 @@
     </div>
 
     <div class="col-md-7">
-      {% if request.path == "/dotsignup" %}
-      <h2>DOTin jäsen, ilmoittaudu tapahtumaan!</h2>
-      <p>Tämä ilmoittautumislomake on tarkoitettu vain DOTin jäsenille.</p>
-      <p>Voit tarkistaa oletko jäsen <a href="http://dot.ayy.fi/register/" target="_blank">jäsenrekisteristämme</a> kohdasta "Vanha jäsen". Saat sähköpostiisi jäsentiedot. Mikäli et ole DOTin jäsen, voit maksaa jäsenmaksun ja silti saman tien osallistua tällä lomakkeella – tarkistamme ilmoittautumisia viiveellä.</p> 
+      {% if places.min == 0 %}
+      <h2>Ilmoittautuminen sulkeutunut!</h2>
+      <p><b>Valitettavasti tapahtuma on jo täynnä. Mikäli haluat kuulla muista DOT ry:n tapahtumista, liity <a href="http://dot.ayy.fi/register/members/mailing_list/" target="_blank">maililistallemme</a>.</b></p>
       {% else %}
+
       <h2>Osallistuminen on nyt auki kaikille!</h2>
-      <p>Koska tapahtumaa järjestää AYY:n alainen yhdistys, oli ilmoittautuminen aluksi auki vain Aallon opiskelijoille. Nyt ilmoittautuminen on kuitenkin auki kaikille halukkaille opiskelu- tai työpaikasta riippumatta. Jos siis olet kiinnostunut oppimaan uusia asioita, tule mukaan!</p>
+      {% if places.min == places.max %}
+      <h4>Paikkoja jäljellä {{ places.min }} kappaletta.</h4>
+      {% else %}
+      <h4>Paikkoja jäljellä {{ places.min }} - {{ places.max }} kappaletta.</h4>
+      <p><small>Tarkka avoimien paikkojen määrä riippuu siitä, maksavatko jo vahvistetut osallistujat osallistumismaksunsa määräaikaan mennessä.</small></p>
       {% endif %}
+      <p>Ilmoittautuminen on auki kaikille halukkaille opiskelu- tai työpaikasta riippumatta 13.6. asti. Jos siis olet kiinnostunut oppimaan uusia asioita, tule mukaan!</p>
       <p><b>Jos sinulla on 2-3 hengen ryhmä jonka kanssa haluat tehdä, ilmoittautukaa kaikki erikseen.</b> Ryhmätiedon tarvitsemme vasta paikan päällä. Ryhmää ei siis kuitenkaan välttämättä tarvitse, vaan osallistuminen onnistuu yhtä hyvin myös yksin!</p>
 
-
-      {% if show_form %}
       <form class="form-horizontal" method="post" id="signup-form">
         {% macro form_input(input, help_text='') -%}
           <div class="form-group {% if input.errors %}has-error{% endif %}">

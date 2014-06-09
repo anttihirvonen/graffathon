@@ -88,7 +88,6 @@ def signup_thank_you():
     return render_template('thank_you.html')
 
 
-@app.route('/dotsignup', endpoint="dot_signup", methods=['GET', 'POST'])
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
@@ -107,11 +106,14 @@ def signup():
 
         return redirect(url_for('signup_thank_you'))
 
-    # Open public signup 24.5. at 18:00
-    show_form = datetime.utcnow() >= datetime(2014, 5, 24, 15, 0, 0) or \
-        request.path == '/dotsignup'
+    # 66 = maximum visitors we take
+    MAX_VISITORS = 66
+    places = {'min': MAX_VISITORS - SignUp.query.filter_by(confirmed=True).count(),
+              'max': MAX_VISITORS - SignUp.query.filter_by(paid=True).count()}
 
-    return render_template('signup.html', form=form, show_form=show_form)
+    return render_template('signup.html',
+                           form=form,
+                           places=places)
 
 
 @app.route('/login', methods=['GET', 'POST'])
