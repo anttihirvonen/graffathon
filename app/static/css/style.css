@@ -298,6 +298,8 @@ blockquote {
     margin-right: 5px;
 }
 
+iframe[id^='twitter-widget-']{ width:100% !important;}
+
 /* media queries */
 @media(max-width:767px) {
     /* layout mobile first, so no styles should be here */
