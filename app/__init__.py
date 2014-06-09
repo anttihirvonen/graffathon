@@ -108,8 +108,8 @@ def signup():
 
     # 66 = maximum visitors we take
     MAX_VISITORS = 66
-    places = {'min': MAX_VISITORS - SignUp.query.filter_by(confirmed=True).count(),
-              'max': MAX_VISITORS - SignUp.query.filter_by(paid=True).count()}
+    places = {'min': MAX_VISITORS - SignUp.query.filter_by(visible=True, confirmed=True).count(),
+              'max': MAX_VISITORS - SignUp.query.filter_by(visible=True, paid=True).count()}
 
     return render_template('signup.html',
                            form=form,
