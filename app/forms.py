@@ -7,7 +7,7 @@ from flask import flash
 
 
 def validate_email(form, field):
-    existing_email = SignUp.query.filter_by(email=field.data).first()
+    existing_email = SignUp.query.filter_by(visible=True, email=field.data).first()
 
     if existing_email:
         raise ValidationError(u'Email already exists')
