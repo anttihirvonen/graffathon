@@ -92,9 +92,9 @@
     </div>
     <div style="text-align: center" class="col-md-4">
       <h2>Pikalinkit</h2>
-      <a href="{{ url_for('info_timetable') }}">Aikataulu</a><br>
-      <a href="{{ url_for('info_speakers') }}">Ohjelma</a><br>
-      <a href="{{ url_for('info_location') }}">Sijainti</a>
+      <a href="{{ url_for('info_timetable') }}" class="btn btn-sm btn-default">Aikataulu</a>
+      <a href="{{ url_for('info_speakers') }}" class="btn btn-sm btn-default">Ohjelma</a>
+      <a href="{{ url_for('info_location') }}" class="btn btn-sm btn-default">Sijainti</a>
       <h2>Yhteistyössä</h2>
       <a href="http://www.futurice.com/"><img src="{{ url_for('static', filename='img/futurice.png') }}" alt="Futurice" class="center-block" style="width: 160px; display: block;"></a>
       <a href="http://www.futuremark.com/"><img src="{{ url_for('static', filename='img/futuremark.png') }}" alt="Futuremark" class="center-block" style="width: 80%"></a>
