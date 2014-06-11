@@ -166,8 +166,18 @@ def show_participants():
             participant_ids = request.form.getlist("selected_remove")
             p_list = SignUp.query.filter(SignUp.id.in_(participant_ids))
 
+            mail_subject = "Graffathon - Ilmoittautumisesi on poistettu"
+            messages = []
+
             for p in p_list:
                 p.visible = False
+                mail_body = render_template("mails/signup_removed.txt",
+                                            participant=p)
+                messages.append(Message(recipients=[p.email],
+                                        body=mail_body,
+                                        subject=mail_subject))
+
+            send_all(messages)
             db.session.commit()
 
             return redirect(url_for('show_participants'))
