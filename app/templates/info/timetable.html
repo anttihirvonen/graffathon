@@ -5,14 +5,15 @@
 {% raw %}
 <script id="timetable-row-template" type="text/x-handlebars-template">
   <tr class="{{ css-class }}">
-    <td>{{ when }}</td>
-    <td>{{ who }}</td>
+    <td style="width: 110px">{{ when }}</td>
+    <td style="width: 70px">{{# if duration }}{{ duration }} min{{/if}}</td>
+    <td style="width: 140px">{{ who }}</td>
     <td><span class="what">{{{ what }}}</span> <span class="description">{{ description }}</span></td>
   </tr>
 </script>
 <script id="timetable-header-template" type="text/x-handlebars-template">
   <tr class="{{ css-class }}">
-    <th colspan=3>{{ when }}</th>
+    <th colspan=4>{{ when }}</th>
   </tr>
 </script>
 {% endraw %}
@@ -60,8 +61,7 @@
 {% endblock %}
 {% block info_content %}
 <h2 id="timetable-section">Aikataulu</h2>
-<p>Huom! Aikataulu on vielä tällä hetkellä alustava ja varmaa on ainoastaa alku- ja loppuaika :-)</p>
-<p>Puhujiin ja aiheisiin voit tutustua tarkemmin <a href="{{ url_for('info_speakers') }}">erillisellä sivulla</a>.</p>
+<p><b>Puhujiin ja aiheisiin voit tutustua tarkemmin <a href="{{ url_for('info_speakers') }}">erillisellä sivulla</a>.</b></p>
 <div class="table-responsive table-striped" id="timetable-wrapper">
   <div class="alert alert-block alert-info" id="timetable-loading-message">Aikataulua ladataan, odota hetki...</div>
   <table id="timetable" class="table table-hover">
