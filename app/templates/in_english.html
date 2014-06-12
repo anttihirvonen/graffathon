@@ -57,18 +57,22 @@
 </script>
 {% endblock %}
 {% block short_header_content %}
-<h1>Graffathon in a nutshell</h1>
-<p class="lead">Wow. Such placeholder. Pleace replace before live.</p>
+<h1>Graffathon is a beginner's computer graphics / demoscene hackathon.</h1>
 {% endblock %}
 {% block content %}
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Graffathon in a nutshell</h1>
-      <p>Graffathon is a hackathon focused on learning graphics programming by trying it out hands on. It is the sequel to the popular event <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics</a>, which was held last year. This year we strive to make the event even more beginner-friendly by offering more presentations and workshops that focus on the practical skills needed to create computer graphics. You can sign up for the event at the <a href="{{ url_for('signup') }}">signup page</a> (Ilmoittaudu)!</p>
-      <p><b>To participate you only need basic programming skills (from any language) and math (basic courses from school for example) - you do not have to be able to code graphics, make music, draw or program. Just bring a computer and something to eat. You will learn.</b> We also offer some snacks for the price of entry. The computer does not have to be the latest and greatest, you do not need a crazy graphics card to try out graphics programming. Almost any computer will do.
+      <h1>The event in a nutshell</h1>
+      <p>Graffathon is a hackathon focused on learning graphics programming by trying it out hands on. The main goal of the event is to create a <a href="http://en.wikipedia.org/wiki/Demo_(computer_programming)" target="_blank">demo</a>, a real-time audiovisual program. The event is targeted at real beginners – we want more people to start creating demos! Spots are open for 60 visitors. The event is organized by the active members of <a href="http://dot.ayy.fi/in-english.html" target="_blank">DOT</a> board.</p>
+      
+      <p>The program consists of helpful presentations and workshops which guide you on creating your first demo. In addition, we have a workshop on modeling with Blender and also teach you the basics of demoscene and democulture. However, since most (at least 95%) of our visitors are Finns, pretty much all of the presentations and workshops are held in Finnish. However, all provided example code and tools will be documented / commented in English, so you should do just fine, even if you don't understand any of the presentations! There will be helpful people around that can guide you. </p>
+
+      <p>Graffathon is the sequel to the popular event <a href="http://dot.ayy.fi/cag2013.html">Code+Audio+Graphics</a>, which was held last year. This year we strive to make the event even more beginner-friendly by offering more presentations and workshops that focus on the practical skills needed to create computer graphics. You can sign up for the event at the <a href="{{ url_for('signup') }}">signup page</a> (Ilmoittaudu)!</p>
+
+      <p><b>To participate you only need basic programming skills (from any language) and math (basic courses from school for example) - you do not have to be able to code graphics, make music, draw or program. Just bring a computer and something to eat. You will learn.</b> We also offer some snacks for the price of entry and our sponsors also provide something for you to eat. The computer does not have to be the latest and greatest (you do not need a crazy graphics card to try out graphics programming). Almost any computer will do.
       </p>
+      <p>
       <p>Compo entries from last year:</p>
       <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLmRDkQf8W1WF7SONaMtqW6grVj9N44HkI" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -79,6 +83,7 @@
       <h1>Competitions</h1>
       <p class="lead">Coding and creating graphics by other means.</p>
       <p>In Graffathon there are multiple competitions, "compos". The main event is the compo for the best realtime audiovisual program, which is knows as the democompo. A couple of smaller compos are organized as well and you are free to participate.</p>
+      <p><b>This year we have great prizes (worth over 500 euros!), sponsored by <a href="http://www.futurice.com" target="_blank">Futurice</a> and <a href="http://www.futuremark.com" target="_blank">Futuremark</a>.</b></p>
       <h2>Democompo</h2>
       <p>The democompo is the main competition of the event.</p>
       <h2>3d-modeling compo</h2>
@@ -107,50 +112,34 @@
   <div class="row">
     <div class="col-md-8">
       <h2>Location</h2>
-      <p>The event takes place at the App Campus facilities in Aalto Innovation House and the address is Otaniementie 19-21. The map on the right illustrates the location. The entrance to App Campus can be found at the left end of the house (seen from the street). Further instructions will be found at the door.</p>
-      <p>App Campus has two well-equipped kitchens (oven included), a gas grill at the balcony, free coffee, showers, rooms for brainstorming, workspace and a presentation room. See the pictures below.</p>
-      <p>There are free parking slots in case you are arriving by car. You can get there easily by public transport as well, buses from Espoo, Helsinki and Vantaa bring you to 500 meters from the site.</p>
+      <p>The event takes place at the AppSpace facilities in Aalto Innovation House, located at Otaniementie 19-21. The map on the right illustrates the location. The entrance to AppSpace can be found at the left end of the house (seen from the street). Further instructions will be found at the door.</p>
+      <p>AppSpace has two well-equipped kitchens (oven included), a gas grill at the balcony, free coffee, showers, rooms for brainstorming, workspace and a presentation room. See the pictures below.</p>
+      <p>There are free parking spots in case you are arriving by car. You can get there easily by public transport as well, buses from Espoo, Helsinki and Vantaa bring you to 500 meters from the site.</p>
 
       <div class="row">
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus7.jpg') }}" data-heading="Talo ulkoa, AppCampus @ 3. kerros">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus1.jpg') }}" data-heading="Yksi suunnitteluhuoneista">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus2.jpg') }}" data-heading="Angry Birds -luola :-)">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus3.jpg') }}" data-heading="Aulatila keittiön vieressä">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus4.jpg') }}" data-heading="Iso huone tietokonepaikoilla">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus5.jpg') }}" data-heading="Presishuone">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus6.jpg') }}" data-heading="Toinen kahdesta keittiöstä">
         </div>
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
-        </a>
+        <div class="col-xs-4 col-md-4 img-wrapper">
+          <img class="img-responsive img-rounded" src="{{ url_for('static', filename='img/appcampus8.jpg') }}" data-heading="Mökki, hyvä paikka koodata.">
         </div>
       </div>
 
@@ -165,16 +154,19 @@
     </div>
     <div class="col-md-6">
       <h4>What do people do at the event?</h4>
-      <p>Code, socialize, listen to presentations and at the end enjoy the amazing compo show. In addition, there will be little fun stuff to do during the whole event in case you hit a creative block.</p>
+      <p>Code, socialize, listen to presentations and at the end enjoy the amazing show of produced entries. In addition, there will be little fun stuff to do during the whole event in case you hit a creative block.</p>
       <h4>What do I need to know to participate?</h4>
-      <p>You should have a very basic understanding of programming and know some simple mathematics (mostly trigonometry, linear algebra (=vectors) and matrices for 3d-graphics). That's all! Don't worry, there will be helpful people around and the presentations will aid you in getting started!</p>
-      <h4>Why do you charge money for the event?</h4>
-      <p>Good question! Code+Audio+Graphics, which we organized last year, was free but this year we wanted to make the event even better. The entrance fee includes perks like free coffee and fruits. A part of the admissions will be paid back to the visitors in form of good prizes. The rest of the money will be used to renew the DOT library so you will be supporting learning as well!</p>
+      <p>You should have a very basic understanding of programming and know some simple mathematics (mostly trigonometry, linear algebra (=vectors) and matrices for 3d-graphics). That's all! Don't worry, there will be helpful people around, even if you don't understand the presentations which are in Finnish!</p>
+      <h4>Which programming langueges/tools are used</h4>
+      <p>For beginners we recommend <a href="http://processing.org/" target="_blank">Processing</a> (effectively Java). You are however free to use any tool you like, but we don't necessarily promise that it will be runnable on competition machine – therefore, bring your own gear. Also, for modelling, Blender is required.</p>
     </div>
     <div class="col-md-6">
+      <h4>Why do you charge money for the event?</h4>
+      <p>Good question! Code+Audio+Graphics, which we organized last year, was free but this year we wanted to make the event even better. The leftover money will be used to renew the DOT library so you will be supporting learning as well!</p>
       <h4>Can I sleep at the event?</h4>
+      <p>Not because of fire safety rules, but little naps on the table are allowed :)</p>
       <h4>What do I need with me?</h4>
-      <h4>Anything else?</h4>
+      <p>A computer and something to eat. Don't take food that doesn't survive in a warm room for 30 hours, since fridge space is very limited!
     </div>
   </div>
 </div>
