@@ -106,8 +106,8 @@ def signup():
 
         return redirect(url_for('signup_thank_you'))
 
-    # 66 = maximum visitors we take
-    MAX_VISITORS = 66
+    # 67 = maximum visitors we take
+    MAX_VISITORS = 67
     places = {'min': MAX_VISITORS - SignUp.query.filter_by(visible=True, confirmed=True).count(),
               'max': MAX_VISITORS - SignUp.query.filter_by(visible=True, paid=True).count()}
 
