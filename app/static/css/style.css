@@ -300,6 +300,10 @@ blockquote {
 
 iframe[id^='twitter-widget-']{ width:100% !important;}
 
+.img-wrapper {
+    margin-top: 22px;
+}
+
 /* media queries */
 @media(max-width:767px) {
     /* layout mobile first, so no styles should be here */
