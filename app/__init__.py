@@ -194,7 +194,7 @@ def show_participants():
             for p in p_list:
                 p.confirmed = True
                 p.confirmed_at = datetime.utcnow()
-                mail_body = render_template("mails/payment_info.txt",
+                mail_body = render_template("mails/payment_info_cash.txt",
                                             participant=p)
                 messages.append(Message(recipients=[p.email],
                                         body=mail_body,
