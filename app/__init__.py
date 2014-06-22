@@ -9,6 +9,9 @@ from flask.ext.thumbnails import Thumbnail
 from flask_errormail import mail_on_500
 from datetime import datetime
 
+from os import listdir
+from os.path import isfile, join
+
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -85,17 +88,18 @@ def team():
 
 @app.route('/archive')
 def archive():
-    from os import listdir
-    from os.path import isfile, join
-    mypath = join(app.config['MEDIA_FOLDER'], 'photos')
     imgdata = lambda name: {
-        'full_url': "{0}photos/{1}".format(app.config['MEDIA_URL'], name),
+        'full_url': "{0}photos/{1}".format(
+            app.config['MEDIA_URL'],
+            name),
         'media_url': "photos/" + name,
     }
 
-    photo_data = [imgdata(f) for f in listdir(mypath)
-                  if isfile(join(mypath, f))]
-    return render_template('archive.html', photos=photo_data)
+    photo_path = join(app.config['MEDIA_FOLDER'], 'photos')
+    photos_data = [imgdata(f) for f in listdir(photo_path)
+                   if isfile(join(photo_path, f))]
+
+    return render_template('archive.html', photos=photos_data)
 
 
 # In development, serve media using flask.
