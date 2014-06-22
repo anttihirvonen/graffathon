@@ -137,9 +137,12 @@ blockquote {
 }
 
 #side-nav.affix {
-    position: static;
     width: auto;
     top: 0;
+}
+
+#side-nav > li {
+    width: 230px;
 }
 
 #side-nav > li.active > a {
