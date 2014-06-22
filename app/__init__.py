@@ -87,20 +87,22 @@ def team():
 def archive():
     from os import listdir
     from os.path import isfile, join
-    mypath = join(app.config['UPLOAD_FOLDER'], 'photos')
+    mypath = join(app.config['MEDIA_FOLDER'], 'photos')
     imgdata = lambda name: {
-        'url': "/uploads/photos/" + name,
-        'abspath': join(mypath, name)
+        'full_url': "{0}photos/{1}".format(app.config['MEDIA_URL'], name),
+        'media_url': "photos/" + name,
     }
-    photo_data = [imgdata(f) for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    photo_data = [imgdata(f) for f in listdir(mypath)
+                  if isfile(join(mypath, f))]
     return render_template('archive.html', photos=photo_data)
 
 
-# In development, serve uploads using flask.
-@app.route('/uploads/<path:filename>')
+# In development, serve media using flask.
+@app.route('/media/<path:filename>')
 def download_file(filename):
     if app.config['DEBUG']:
-        return send_from_directory(app.config['UPLOAD_FOLDER'],
+        return send_from_directory(app.config['MEDIA_FOLDER'],
                                    filename)
 
 
