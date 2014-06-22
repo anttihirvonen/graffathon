@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
 from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
@@ -80,7 +80,23 @@ def team():
 
 @app.route('/archive')
 def archive():
-    return render_template('archive.html')
+    from os import listdir
+    from os.path import isfile, join
+    mypath = join(app.config['UPLOAD_FOLDER'], 'photos')
+    imgdata = lambda name: {
+        'url': "/uploads/photos/" + name,
+        'abspath': join(mypath, name)
+    }
+    photo_data = [imgdata(f) for f in listdir(mypath) if isfile(join(mypath, f))]
+    return render_template('archive.html', photos=photo_data)
+
+
+# In development, serve uploads using flask.
+@app.route('/uploads/<path:filename>')
+def download_file(filename):
+    if app.config['DEBUG']:
+        return send_from_directory(app.config['UPLOAD_FOLDER'],
+                                   filename)
 
 
 @app.route('/in-english')

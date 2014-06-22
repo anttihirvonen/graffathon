@@ -13,6 +13,8 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/graffathon.db'
 USERNAME = "admin"
 PASSWORD = "password"
 
+UPLOAD_FOLDER = '/tmp/graffathon-uploads'
+
 # email server
 # TESTING = True
 # ADMINS = ['test@localhost.com']
