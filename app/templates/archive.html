@@ -4,7 +4,7 @@
 <p class="lead">Released entries, photos and more!</p>
 {% endblock %}
 {% block extra_head %}
-<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/blueimp/css/blueimp-gallery.min.css') }}">
 <script type="text/javascript">
   $(function () {
     $('body').scrollspy({ target: '#side-nav-wrapper' });
@@ -163,5 +163,5 @@
         </div>
     </div>
 </div>
-<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="{{ url_for('static', filename="vendor/blueimp/js/jquery.blueimp-gallery.min.js") }}"></script>
 {% endblock %}
