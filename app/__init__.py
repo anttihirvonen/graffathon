@@ -78,6 +78,11 @@ def team():
     return render_template('team.html')
 
 
+@app.route('/archive')
+def archive():
+    return render_template('archive.html')
+
+
 @app.route('/in-english')
 def in_english():
     return render_template('in_english.html')

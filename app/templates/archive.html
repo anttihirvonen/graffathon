@@ -1,0 +1,120 @@
+{% extends 'base_with_nav_and_footer.html' %}
+{% block short_header_content %}
+<h1>Check out all materials from Graffathon</h1>
+<p class="lead">Released entries, photos and more!</p>
+{% endblock %}
+{% block extra_head %}
+<script type="text/javascript">
+  $(function () {
+    $('body').scrollspy({ target: '#side-nav-wrapper' });
+  });
+</script>
+
+{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-sm-push-9">
+      <div id="side-nav-wrapper" >
+        <ul id="side-nav" class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top=230 data-offset-bottom=0>
+          <li><a href="#democompo">Demo compo</a></li>
+          <li><a href="#gfxcompo">Graphics compo</a></li>
+          <li><a href="#modelingcompo">Modeling compo</a></li>
+          <li><a href="#photos">Photos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-9 col-sm-pull-3" id="info-content">
+      <h2>Entries</h2>
+      <p>Total of 19 demos, 4 drawn pictures and 5 modeling entries were released at Graffathon. Full results with all related links are listed below.</p>
+      <p>Sources for all demos are available at <a href="https://github.com/anttihirvonen/graffathon-demos">Github</a>.</p>
+
+      {% macro competition_entry(placement, points, entry_name, group, youtube_link, pouet_link) %}
+      <tr>
+        <td>{{ placement }}.</td>
+        <td>{{ points }}</td>
+        <td>{{ entry_name }}</td>
+        <td>{{ group }}</td>
+        <td>
+          {% if pouet_link %}
+          <a target="_blank" class="btn btn-sm btn-primary"href="{{ pouet_link }}">Pouet</a>
+          {% endif %}
+          {% if youtube_link %}
+          <a target="_blank" class="btn btn-sm btn-default" href="{{ youtube_link }}">Youtube</a>
+          {% endif %}
+        </td>
+      </tr>
+      {%- endmacro %}
+
+      <h3 id="democompo">Demo compo</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Placement</th>
+            <th>Points</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ competition_entry(1, 190, "Fishiness = 0.367879", "Lemon Giraffe", "test", "") }}
+          {{ competition_entry(2, 181, "todo", "todo", "todo", "") }}
+          {{ competition_entry(3, 171, "todo", "todo", "todo", "") }}
+          {{ competition_entry(4, 167, "todo", "todo", "todo", "") }}
+          {{ competition_entry(5, 161, "todo", "todo", "todo", "") }}
+          {{ competition_entry(6, 160, "todo", "todo", "todo", "") }}
+          {{ competition_entry(7, 159, "todo", "todo", "todo", "") }}
+          {{ competition_entry(8, 158, "todo", "todo", "todo", "") }}
+          {{ competition_entry(9, 152, "todo", "todo", "todo", "") }}
+          {{ competition_entry(10, 144, "todo", "todo", "todo", "") }}
+          {{ competition_entry(11, 131, "todo", "todo", "todo", "") }}
+          {{ competition_entry(12, 130, "todo", "todo", "todo", "") }}
+          {{ competition_entry(13, 130, "todo", "todo", "todo", "") }}
+          {{ competition_entry(14, 125, "todo", "todo", "todo", "") }}
+          {{ competition_entry(15, 111, "todo", "todo", "todo", "") }}
+          {{ competition_entry(16, 105, "todo", "todo", "todo", "") }}
+          {{ competition_entry(17, 103, "todo", "todo", "todo", "") }}
+          {{ competition_entry(18, 93, "todo", "todo", "todo", "") }}
+          {{ competition_entry(19, 91, "todo", "todo", "todo", "") }}
+        </tbody>
+      </table>
+
+      <h3 id="gfxcompo">Graphics compo</h3>
+      <table class="table table-9triped">
+        <thead>
+          <tr>
+            <th>Placement</th>
+            <th>Points</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Links</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <h3 id="modelingcompo">Modeling compo</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Placement</th>
+            <th>Points</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Links</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <h2>Photos</h2>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
