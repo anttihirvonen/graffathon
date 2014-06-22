@@ -24,6 +24,16 @@ body a {
     color: #930ca7;
 }
 
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.no-gutter [class*="col-md"] {
+    padding-left:0;
+    padding-right: 0;
+}
+
 body a:hover {
     color: #c241a8;
 }
@@ -305,6 +315,10 @@ iframe[id^='twitter-widget-']{ width:100% !important;}
 
 .img-wrapper {
     margin-top: 22px;
+}
+
+.gallery-photo {
+    float: left;
 }
 
 /* media queries */
