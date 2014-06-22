@@ -4,13 +4,16 @@ from werkzeug.contrib.fixers import ProxyFix
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from flask.ext.mail import Message, Mail
+from flask.ext.thumbnails import Thumbnail
 
 from flask_errormail import mail_on_500
 from datetime import datetime
 
+
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
+# Load configs
 app.config.from_object('app.settings.common')
 app.config.from_envvar('GRAFFATHON_SETTINGS')
 
@@ -25,6 +28,8 @@ login_manager.login_view = '/login'
 
 mail = Mail(app)
 mail.init_app(app)
+
+thumb = Thumbnail(app)
 
 from models import SignUp, Admin
 from forms import SignUpForm, LoginForm

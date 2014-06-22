@@ -1,3 +1,5 @@
+import os.path
+
 DEBUG = True
 
 ADMINISTRATORS = ()
@@ -13,7 +15,11 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/graffathon.db'
 USERNAME = "admin"
 PASSWORD = "password"
 
-UPLOAD_FOLDER = '/tmp/graffathon-uploads'
+# Uploaded media files
+MEDIA_FOLDER = '/tmp/graffathon-media'
+MEDIA_THUMBNAIL_FOLDER = os.path.join(MEDIA_FOLDER, "cache")
+MEDIA_URL = '/media/'
+MEDIA_THUMBNAIL_URL = '/media/cache/'
 
 # email server
 # TESTING = True
