@@ -120,7 +120,7 @@
           {% for photo in photos %}
           <div class="col-md-2 col-xs-2">
             <a href="{{ photo.full_url }}" title="" data-gallery>
-              <img src="{{ photo.media_url|thumbnail('260x260', crop='fit') }}" style="width: 100%; height: 100%" alt="test">
+              <img src="{{ photo.media_url|thumbnail('260x260', crop='fit') }}" class="gallery-thumbnail" alt="test">
             </a>
           </div>
           {% endfor %}

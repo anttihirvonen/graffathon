@@ -317,8 +317,8 @@ iframe[id^='twitter-widget-']{ width:100% !important;}
     margin-top: 22px;
 }
 
-.gallery-photo {
-    float: left;
+.gallery-thumbnail {
+    width: 100%;
 }
 
 /* media queries */
