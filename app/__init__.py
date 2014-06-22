@@ -96,7 +96,7 @@ def archive():
     }
 
     photo_path = join(app.config['MEDIA_FOLDER'], 'photos')
-    photos_data = [imgdata(f) for f in listdir(photo_path)
+    photos_data = [imgdata(f) for f in sorted(listdir(photo_path))
                    if isfile(join(photo_path, f))]
 
     return render_template('archive.html', photos=photos_data)
