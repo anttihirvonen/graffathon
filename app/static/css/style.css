@@ -152,7 +152,7 @@ blockquote {
 }
 
 #side-nav > li {
-    width: 230px;
+   /* width: 230px;*/
 }
 
 #side-nav > li.active > a {
@@ -324,6 +324,13 @@ iframe[id^='twitter-widget-']{ width:100% !important;}
 /* media queries */
 @media(max-width:767px) {
     /* layout mobile first, so no styles should be here */
+    #side-nav.affix {
+        position: static;
+    }
+
+    #side-nav > li {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -338,7 +345,10 @@ iframe[id^='twitter-widget-']{ width:100% !important;}
     #side-nav {
         top: 0;
         margin-top: 20px;
-        width: 200px;
+    }
+
+    #side-nav > .li {
+        width: 230px;
     }
 }
 
