@@ -31,13 +31,16 @@
       <p>Total of 19 demos, 4 drawn pictures and 5 modeling entries were released at Graffathon. Full results with all related links are listed below.</p>
       <p>Sources for all demos are available at <a href="https://github.com/anttihirvonen/graffathon-demos">Github</a>. Videos of the entries are also available as a Youtube-playlist for easy viewing. If you want to run the entries real time, download this package (Windows only). Linux/Mac users must run from sources; this is documented on Github page.</p>
 
-      {% macro competition_entry(placement, points, entry_name, group, youtube_link, pouet_link) %}
+      {% macro competition_entry(placement, points, entry_name, group, scene_link, pouet_link, youtube_link) %}
       <tr>
         <td>{{ placement }}.</td>
         <td>{{ points }}</td>
         <td>{{ entry_name }}</td>
         <td>{{ group }}</td>
         <td>
+          {% if scene_link %}
+
+          {% endif %}
           {% if pouet_link %}
           <a target="_blank" class="btn btn-sm btn-primary"href="{{ pouet_link }}">Pouet</a>
           {% endif %}
@@ -60,25 +63,25 @@
           </tr>
         </thead>
         <tbody>
-          {{ competition_entry(1, 190, "Fishiness = 0.367879", "Lemon Giraffe", "youtube", "pouet") }}
-          {{ competition_entry(2, 181, "todo", "todo", "todo", "") }}
-          {{ competition_entry(3, 171, "todo", "todo", "todo", "") }}
-          {{ competition_entry(4, 167, "todo", "todo", "todo", "") }}
-          {{ competition_entry(5, 161, "todo", "todo", "todo", "") }}
-          {{ competition_entry(6, 160, "todo", "todo", "todo", "") }}
-          {{ competition_entry(7, 159, "todo", "todo", "todo", "") }}
-          {{ competition_entry(8, 158, "todo", "todo", "todo", "") }}
-          {{ competition_entry(9, 152, "todo", "todo", "todo", "") }}
-          {{ competition_entry(10, 144, "todo", "todo", "todo", "") }}
-          {{ competition_entry(11, 131, "todo", "todo", "todo", "") }}
-          {{ competition_entry(12, 130, "todo", "todo", "todo", "") }}
-          {{ competition_entry(13, 130, "todo", "todo", "todo", "") }}
-          {{ competition_entry(14, 125, "todo", "todo", "todo", "") }}
-          {{ competition_entry(15, 111, "todo", "todo", "todo", "") }}
-          {{ competition_entry(16, 105, "todo", "todo", "todo", "") }}
-          {{ competition_entry(17, 103, "todo", "todo", "todo", "") }}
-          {{ competition_entry(18, 93, "todo", "todo", "todo", "") }}
-          {{ competition_entry(19, 91, "todo", "todo", "todo", "") }}
+          {{ competition_entry(1, 190, "Fishiness = 0.367879", "Lemon Giraffe", "", "", "https://www.youtube.com/watch?v=ik35Jv4u4Es") }}
+          {{ competition_entry(2, 181, "People of Earth", "Phallicnose", "", "", "") }}
+          {{ competition_entry(3, 171, "Birds", "Skeletor", "", "", "") }}
+          {{ competition_entry(4, 167, "Crystallized", "Blackbird", "", "", "") }}
+          {{ competition_entry(5, 161, "Melkeen sama.", "Ihan sama, joo", "", "", "") }}
+          {{ competition_entry(6, 160, "They're Out There", "Gluster", "", "", "") }}
+          {{ competition_entry(7, 159, "Fourier birds and realtime 2D ray tracing", "Eläkeläisturistit", "", "", "") }}
+          {{ competition_entry(8, 158, "Rocket into danger", "demogurp", "", "", "") }}
+          {{ competition_entry(9, 152, "Not a Cube of Confusion", "Black Box", "", "", "") }}
+          {{ competition_entry(10, 144, "Mitä kävi viime yönä", "Xywzel", "", "", "") }}
+          {{ competition_entry(11, 131, "pinkiponki", "meriloska & aapalo", "", "", "") }}
+          {{ competition_entry(12, 130, "BeatCubes", "CG1", "", "", "") }}
+          {{ competition_entry(13, 130, "EXTREME EXTREMISM", "Decent Odds", "", "", "") }}
+          {{ competition_entry(14, 125, "CubeGrid", "BJAKKE", "", "", "") }}
+          {{ competition_entry(15, 111, "Univaje", "UnknownPotato", "", "", "") }}
+          {{ competition_entry(16, 105, "ravellys", "blast from the passt", "", "", "") }}
+          {{ competition_entry(17, 103, "Kovaa soittoa kolmannella!", "Juha4ever", "", "", "") }}
+          {{ competition_entry(18, 93, "ExtremeMusicPlayer", "DPC", "", "", "") }}
+          {{ competition_entry(19, 91, "Boozembly 2014 invitation", "Damones", "", "http://www.pouet.net/prod.php?which=63597", "") }}
         </tbody>
       </table>
 
@@ -94,6 +97,10 @@
           </tr>
         </thead>
         <tbody>
+          {{ competition_entry(1, 190, "Storm in a teacup", "Lemon Giraffe", "", "", "") }}
+          {{ competition_entry(2, 177, "Läheltä piti", "Phallicnose", "", "", "") }}
+          {{ competition_entry(3, 127, "Deadline", "Ninja Tukiainen", "", "", "") }}
+          {{ competition_entry(4, 122, "Oltermanni", "Famelorce^Thinpastic", "", "", "") }}
         </tbody>
       </table>
 
@@ -109,6 +116,11 @@
           </tr>
         </thead>
         <tbody>
+          {{ competition_entry(1, 222, "TURTLES OF TOMORROW", "KAAMOS 3D", "", "", "") }}
+          {{ competition_entry(2, 178, "Beyond The Horizon", "Dalen Production Corporation", "", "", "") }}
+          {{ competition_entry(3, 143, "Horisonni", "Pingviinituutti", "", "", "") }}
+          {{ competition_entry(4, 124, "Banaanilaiva horisontissa", "Gluster", "", "", "") }}
+          {{ competition_entry(5, 116, "Simpleness is beautiful", "Jetch", "", "", "") }}
         </tbody>
       </table>
 
