@@ -229,36 +229,28 @@ blockquote {
     text-transform: uppercase;
     text-shadow: 3px 3px rgba(0, 0, 0, 0.3);
 }
-/*
-#tuleoppimaan {
-    text-shadow: 1px 1px #333;
+
+
+.dl-button {
+    width: 100px;
+    text-align: center;
 }
 
-#tuleoppimaan #varaapaikkasi {
-    color: #af4099;
-    text-shadow: 1px 1px 1px #bbb;
-    text-decoration: none;
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
 }
 
-#tuleoppimaan #tutustutarkemmin {
-    color: #c241a8;
-    text-shadow: 0.9px 0.9px 1px #333;
-    text-decoration: none;
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-
-.btn-default { /*varaa paikkasi*/
-    background-color: #eee;
-}
-
-.btn-primary { /*ilmoittaudu*/
-    background-color: #5e154f;
-    border-color: #4d083f;
-}
-
-.btn-primary:hover { /*ilmoittaudu*/
-    background-color: #6f1e5e;
-}
-*/
 
 #timetable {
     display: none;

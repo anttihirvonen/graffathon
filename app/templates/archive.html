@@ -19,110 +19,39 @@
     <div class="col-sm-3 col-sm-push-9">
       <div id="side-nav-wrapper" >
         <ul id="side-nav" class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top=230 data-offset-bottom=0>
-          <li><a href="#democompo">Demo compo</a></li>
-          <li><a href="#gfxcompo">Graphics compo</a></li>
-          <li><a href="#modelingcompo">Modeling compo</a></li>
+          <li><a href="#links">Links</a></li>
           <li><a href="#photos">Photos</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-9 col-sm-pull-3" id="info-content">
       <h2>Entries</h2>
-      <p>Total of 19 demos, 4 drawn pictures and 5 modeling entries were released at Graffathon. Full results with all related links are listed below.</p>
-      <p>Sources for all demos are available at <a href="https://github.com/anttihirvonen/graffathon-demos">Github</a>. Videos of the entries are also available as a Youtube-playlist for easy viewing. If you want to run the entries real time, download this package (Windows only). Linux/Mac users must run from sources; this is documented on Github page.</p>
-
-      {% macro competition_entry(placement, points, entry_name, group, scene_link, pouet_link, youtube_link) %}
-      <tr>
-        <td>{{ placement }}.</td>
-        <td>{{ points }}</td>
-        <td>{{ entry_name }}</td>
-        <td>{{ group }}</td>
-        <td>
-          {% if scene_link %}
-
-          {% endif %}
-          {% if pouet_link %}
-          <a target="_blank" class="btn btn-sm btn-primary"href="{{ pouet_link }}">Pouet</a>
-          {% endif %}
-          {% if youtube_link %}
-          <a target="_blank" class="btn btn-sm btn-default" href="{{ youtube_link }}">Youtube</a>
-          {% endif %}
-        </td>
-      </tr>
-      {%- endmacro %}
-
-      <h3 id="democompo">Demo compo</h3>
+      <p>Total of 19 demos, 4 drawn pictures and 5 modeling entries were released at Graffathon. Check out the links below for full results, all productions and more!</p>
+      <h3 id="links">Links</h3>
       <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Placement</th>
-            <th>Points</th>
-            <th>Name</th>
-            <th>Group</th>
-            <th>Links</th>
-          </tr>
-        </thead>
         <tbody>
-          {{ competition_entry(1, 190, "Fishiness = 0.367879", "Lemon Giraffe", "", "", "https://www.youtube.com/watch?v=ik35Jv4u4Es") }}
-          {{ competition_entry(2, 181, "People of Earth", "Phallicnose", "", "", "") }}
-          {{ competition_entry(3, 171, "Birds", "Skeletor", "", "", "") }}
-          {{ competition_entry(4, 167, "Crystallized", "Blackbird", "", "", "") }}
-          {{ competition_entry(5, 161, "Melkeen sama.", "Ihan sama, joo", "", "", "") }}
-          {{ competition_entry(6, 160, "They're Out There", "Gluster", "", "", "") }}
-          {{ competition_entry(7, 159, "Fourier birds and realtime 2D ray tracing", "Eläkeläisturistit", "", "", "") }}
-          {{ competition_entry(8, 158, "Rocket into danger", "demogurp", "", "", "") }}
-          {{ competition_entry(9, 152, "Not a Cube of Confusion", "Black Box", "", "", "") }}
-          {{ competition_entry(10, 144, "Mitä kävi viime yönä", "Xywzel", "", "", "") }}
-          {{ competition_entry(11, 131, "pinkiponki", "meriloska & aapalo", "", "", "") }}
-          {{ competition_entry(12, 130, "BeatCubes", "CG1", "", "", "") }}
-          {{ competition_entry(13, 130, "EXTREME EXTREMISM", "Decent Odds", "", "", "") }}
-          {{ competition_entry(14, 125, "CubeGrid", "BJAKKE", "", "", "") }}
-          {{ competition_entry(15, 111, "Univaje", "UnknownPotato", "", "", "") }}
-          {{ competition_entry(16, 105, "ravellys", "blast from the passt", "", "", "") }}
-          {{ competition_entry(17, 103, "Kovaa soittoa kolmannella!", "Juha4ever", "", "", "") }}
-          {{ competition_entry(18, 93, "ExtremeMusicPlayer", "DPC", "", "", "") }}
-          {{ competition_entry(19, 91, "Boozembly 2014 invitation", "Damones", "", "http://www.pouet.net/prod.php?which=63597", "") }}
-        </tbody>
-      </table>
+          <tr>
+            <td><a target="_blank" href="ftp://ftp.scene.org/pub/parties/2014/graffathon14/results.txt" class="btn btn-primary dl-button">results.txt</a></td><td>The final voting results.</td>
+          </tr>
+          <tr>
+            <td><a target="_blank" href="https://www.scene.org/newfiles.php?dayint=7&dir=/parties/2014/graffathon14/" class="dl-button btn btn-primary">Scene.org</a></td><td>Download all productions! Demos are available under <i>demo/</i> as zipfiles which contain 32- and 64-bit Windows executables and sources (for running on Mac/Linux). You can also download all graphics (<i>gfx/</i>) and modeling (<i>modeling/</i>) entries as zip-packages.</td>
+          </tr><tr>
+            <td><a target="_blank" href="http://www.pouet.net/party.php?which=1689&when=2014" class="dl-button btn btn-primary">Pouet.net</a></td><td>All demos were added to Pouet.net, the main database of demoscene productions. Make an account if you don't already have one and leave a comment!</td>
+          </tr>
+          </tr><tr>
+            <td><a target="_blank" href="http://artcity.bitfellas.org/index.php?a=search&text=graffathon%2C2014&type=tag" class="dl-button btn btn-primary">ArtCity</a></td><td>You can easily view all graphics and modeling entries at ArtCity, the Demoscene Graphics Gallery. Again, remember to leave comment :)</td>
+          </tr>
+          <tr>
+            <td><a target="_blank" href="https://github.com/anttihirvonen/graffathon-demos" class="dl-button btn btn-primary">Github</a></td><td>Grab sources of all demos from Github for learning and experimentation.</td>
+          </tr>
 
-      <h3 id="gfxcompo">Graphics compo</h3>
-      <table class="table table-9triped">
-        <thead>
-          <tr>
-            <th>Placement</th>
-            <th>Points</th>
-            <th>Name</th>
-            <th>Group</th>
-            <th>Links</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ competition_entry(1, 190, "Storm in a teacup", "Lemon Giraffe", "", "", "") }}
-          {{ competition_entry(2, 177, "Läheltä piti", "Phallicnose", "", "", "") }}
-          {{ competition_entry(3, 127, "Deadline", "Ninja Tukiainen", "", "", "") }}
-          {{ competition_entry(4, 122, "Oltermanni", "Famelorce^Thinpastic", "", "", "") }}
         </tbody>
       </table>
+      <p>Are you lazy and don't want to watch demos real-time on your computer? No worries! The Youtube-playlist attached below contains video captures of all demos in the order of final results.</p>
 
-      <h3 id="modelingcompo">Modeling compo</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Placement</th>
-            <th>Points</th>
-            <th>Name</th>
-            <th>Group</th>
-            <th>Links</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ competition_entry(1, 222, "TURTLES OF TOMORROW", "KAAMOS 3D", "", "", "") }}
-          {{ competition_entry(2, 178, "Beyond The Horizon", "Dalen Production Corporation", "", "", "") }}
-          {{ competition_entry(3, 143, "Horisonni", "Pingviinituutti", "", "", "") }}
-          {{ competition_entry(4, 124, "Banaanilaiva horisontissa", "Gluster", "", "", "") }}
-          {{ competition_entry(5, 116, "Simpleness is beautiful", "Jetch", "", "", "") }}
-        </tbody>
-      </table>
+      <div class="video-container">
+        <iframe width="640" height="360" src="//www.youtube.com/embed/ik35Jv4u4Es?list=PLmRDkQf8W1WFsSZk8PvDG7_sB7Gb4dI0s" frameborder="0" allowfullscreen></iframe>
+      </div>
 
       <hr>
 
