@@ -1,4 +1,6 @@
 {% extends 'base_with_nav_and_footer.html' %}
+{% block title %}Archive{% endblock %}
+{% block meta_description %}Check out all released entries, photos and more from Graffathon 2014.{% endblock %}
 {% block short_header_content %}
 <h1>Check out all materials from Graffathon</h1>
 <p class="lead">Released entries, photos and more!</p>
@@ -13,7 +15,14 @@
 
 {% endblock %}
 {% block content %}
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&appId=&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="container">
   <div class="row">
     <div class="col-sm-3 col-sm-push-9">
@@ -25,6 +34,15 @@
       </div>
     </div>
     <div class="col-sm-9 col-sm-pull-3" id="info-content">
+      <div class="row social-buttons" style="margin-top: 10px">
+        <div class="col-sm-2">
+          <div class="fb-like" data-href="http://www.graffathon.fi/archive" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        </div>
+        <div class="col-sm-10">
+          <a style="float: left;" href="https://twitter.com/share" class="twitter-share-button" data-via="graffathon">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+      </div>
       <h2>Entries</h2>
       <p>Total of 19 demos, 4 drawn pictures and 5 modeling entries were released at Graffathon. Click the links below to find more info or scroll down to photos.</p>
       <h3 id="links">Links</h3>
